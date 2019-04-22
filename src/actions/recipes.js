@@ -19,13 +19,46 @@ export const fetchRecipesError = error => ({
     error
 });
 
+export const FETCH_SINGLE_RECIPE_REQUEST = 'FETCH_SINGLE_RECIPE_REQUEST';
+export const fetchSingleRecipeRequest = () => ({
+    type: FETCH_SINGLE_RECIPE_REQUEST
+});
+
+export const FETCH_SINGLE_RECIPE_SUCCESS = 'FETCH_SINGLE_RECIPE_SUCCESS';
+export const fetchSingleRecipeSuccess = data => ({
+    type: FETCH_SINGLE_RECIPE_SUCCESS,
+    data
+});
+
+export const FETCH_SINGLE_RECIPE_ERROR = 'FETCH_SINGLE_RECIPE_ERROR';
+export const fetchSingleRecipeError = error => ({
+    type: FETCH_SINGLE_RECIPE_ERROR,
+    error
+});
+
+export const CLEAR_SINGLE_RECIPE = 'CLEAR_SINGLE_RECIPE';
+export const clearSingleRecipe = () => ({
+    type: CLEAR_SINGLE_RECIPE
+});
+
 //GET - retrieve recipes
-export const fetchRecipes = () => (dispatch) => {
+export const fetchRecipes = () => dispatch => {
     dispatch(fetchRecipesRequest());
     return fetch(`${API_BASE_URL}/api/recipes`, { 
-        method: 'GET' 
-    })
+            method: 'GET' 
+        })
         .then(res => res.json())
         .then(res => dispatch(fetchRecipesSuccess(res)))
         .catch(err => dispatch(fetchRecipesError(err)));
+}
+
+//GET - retrieve single recipe
+export const fetchSingleRecipe = id => dispatch => {
+    dispatch(fetchSingleRecipeRequest());
+    return fetch(`${API_BASE_URL}/api/recipes/${id}`, {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(res => dispatch(fetchSingleRecipeSuccess(res)))
+        .catch(err => dispatch(fetchSingleRecipeError(err)));
 }

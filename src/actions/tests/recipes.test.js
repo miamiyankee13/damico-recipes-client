@@ -4,10 +4,19 @@ import {
     FETCH_RECIPES_REQUEST,
     FETCH_RECIPES_SUCCESS,
     FETCH_RECIPES_ERROR,
+    FETCH_SINGLE_RECIPE_REQUEST,
+    FETCH_SINGLE_RECIPE_SUCCESS,
+    FETCH_SINGLE_RECIPE_ERROR,
+    CLEAR_SINGLE_RECIPE,
     fetchRecipesRequest,
     fetchRecipesSuccess,
     fetchRecipesError,
-    fetchRecipes
+    fetchRecipes,
+    fetchSingleRecipeRequest,
+    fetchSingleRecipeSuccess,
+    fetchSingleRecipeError,
+    clearSingleRecipe,
+    fetchSingleRecipe
 } from '../recipes';
 
 describe('Action Creators', function() {
@@ -29,11 +38,43 @@ describe('Action Creators', function() {
     
     describe('fetchRecipesError', function() {
         it('Should return the action', function() {
-            const error ='Bad request'
+            const error ='Bad request';
             const action = fetchRecipesError(error);
             expect(action.type).toEqual(FETCH_RECIPES_ERROR);
             expect(action.error).toEqual(error);
         });
+    });
+
+    describe('fetchSingleRecipeRequest', function() {
+        it('Should return the action', function() {
+            const action = fetchSingleRecipeRequest();
+            expect(action.type).toEqual(FETCH_SINGLE_RECIPE_REQUEST);
+        });
+    });
+
+    describe('fetchSingleRecipeSuccess', function() {
+        it('Should return the action', function() {
+            const recipe = { name: 'Chicken' };
+            const action = fetchSingleRecipeSuccess(recipe);
+            expect(action.type).toEqual(FETCH_SINGLE_RECIPE_SUCCESS);
+            expect(action.data).toEqual(recipe);
+        });
+    });
+
+    describe('fetchSingleRecipeError', function() {
+        it('Should return the action', function() {
+            const error = 'Bad request';
+            const action = fetchSingleRecipeError(error);
+            expect(action.type).toEqual(FETCH_SINGLE_RECIPE_ERROR);
+            expect(action.error).toEqual(error);
+        });
+    });
+
+    describe('clearSingleRecipe', function() {
+        it('Should return the action', function() {
+            const action = clearSingleRecipe();
+            expect(action.type).toEqual(CLEAR_SINGLE_RECIPE);
+        })
     });
 });
 
@@ -62,6 +103,35 @@ describe('Async Actions', function() {
                         });
                         expect(dispatch).toHaveBeenCalledWith(fetchRecipesRequest());
                         expect(dispatch).toHaveBeenCalledWith(fetchRecipesSuccess(data));
+                    });
+        });
+    });
+
+    describe('fetchSingleRecipe', function() {
+        it('Should dispatch request & success actions', function() {
+            const data = {
+                recipe: { name: 'Chicken' }
+            };
+
+            global.fetch = jest.fn().mockImplementation(() =>
+                Promise.resolve({
+                    ok: true,
+                    json() {
+                        return data;
+                    }
+                })
+            );
+
+            const dispatch = jest.fn();
+            const id = '7321832174';
+
+            return fetchSingleRecipe(id)(dispatch)
+                    .then(function() {
+                        expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/api/recipes/${id}`, {
+                            method: 'GET'
+                        });
+                        expect(dispatch).toHaveBeenCalledWith(fetchSingleRecipeRequest());
+                        expect(dispatch).toHaveBeenCalledWith(fetchSingleRecipeSuccess(data));
                     });
         });
     });
