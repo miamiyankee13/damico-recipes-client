@@ -8,6 +8,9 @@ import {
     FETCH_SINGLE_RECIPE_SUCCESS,
     FETCH_SINGLE_RECIPE_ERROR,
     CLEAR_SINGLE_RECIPE,
+    FETCH_RECIPES_BY_MEAL_REQUEST,
+    FETCH_RECIPES_BY_MEAL_SUCCESS,
+    FETCH_RECIPES_BY_MEAL_ERROR,
     fetchRecipesRequest,
     fetchRecipesSuccess,
     fetchRecipesError,
@@ -16,7 +19,11 @@ import {
     fetchSingleRecipeSuccess,
     fetchSingleRecipeError,
     clearSingleRecipe,
-    fetchSingleRecipe
+    fetchSingleRecipe,
+    fetchRecipesByMealRequest,
+    fetchRecipesByMealSuccess,
+    fetchRecipesByMealError,
+    fetchRecipesByMeal
 } from '../recipes';
 
 describe('Action Creators', function() {
@@ -76,6 +83,31 @@ describe('Action Creators', function() {
             expect(action.type).toEqual(CLEAR_SINGLE_RECIPE);
         })
     });
+
+    describe('fetchRecipesByMealRequest', function() {
+        it('Should return the action', function() {
+            const action = fetchRecipesByMealRequest();
+            expect(action.type).toEqual(FETCH_RECIPES_BY_MEAL_REQUEST);
+        });
+    });
+
+    describe('fetchRecipesByMealSuccess', function() {
+        it('Should return the action', function() {
+            const recipes = ['Recipe 1', 'Recipe 2'];
+            const action = fetchRecipesByMealSuccess(recipes);
+            expect(action.type).toEqual(FETCH_RECIPES_BY_MEAL_SUCCESS);
+            expect(action.data).toEqual(recipes);
+        });
+    });
+
+    describe('fetchRecipesByMealError', function() {
+        it('Should return the action', function() {
+            const error = 'Bad request';
+            const action = fetchRecipesByMealError(error);
+            expect(action.type).toEqual(FETCH_RECIPES_BY_MEAL_ERROR);
+            expect(action.error).toEqual(error);
+        });
+    });
 });
 
 describe('Async Actions', function() {
@@ -133,6 +165,35 @@ describe('Async Actions', function() {
                         expect(dispatch).toHaveBeenCalledWith(fetchSingleRecipeRequest());
                         expect(dispatch).toHaveBeenCalledWith(fetchSingleRecipeSuccess(data));
                     });
+        });
+    });
+
+    describe('fetchRecipesByMeal', function() {
+        it('Should dispatch request & success actions', function() {
+            const data = {
+                recipes: ['Recipe 1', 'Recipe 2']
+            };
+
+            global.fetch = jest.fn().mockImplementation(() =>
+                Promise.resolve({
+                    ok: true,
+                    json() {
+                        return data;
+                    }
+                })
+            );
+
+            const dispatch = jest.fn();
+            const meal = 'Breakfast'
+
+            return fetchRecipesByMeal(meal)(dispatch)
+                    .then(function() {
+                        expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/api/recipes/meals/${meal}`, {
+                            method: 'GET'
+                        });
+                        expect(dispatch).toHaveBeenCalledWith(fetchRecipesByMealRequest());
+                        expect(dispatch).toHaveBeenCalledWith(fetchRecipesByMealSuccess(data));
+                    })
         });
     });
 });

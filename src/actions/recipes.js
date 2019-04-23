@@ -41,6 +41,23 @@ export const clearSingleRecipe = () => ({
     type: CLEAR_SINGLE_RECIPE
 });
 
+export const FETCH_RECIPES_BY_MEAL_REQUEST = 'FETCH_RECIPES_BY_MEAL_REQUEST';
+export const fetchRecipesByMealRequest = () => ({
+    type: FETCH_RECIPES_BY_MEAL_REQUEST
+});
+
+export const FETCH_RECIPES_BY_MEAL_SUCCESS = 'FETCH_RECIPES_BY_MEAL_SUCCESS';
+export const fetchRecipesByMealSuccess = data => ({
+    type: FETCH_RECIPES_BY_MEAL_SUCCESS,
+    data
+});
+
+export const FETCH_RECIPES_BY_MEAL_ERROR = 'FETCH_RECIPES_BY_MEAL_ERROR';
+export const fetchRecipesByMealError = error => ({
+    type: FETCH_RECIPES_BY_MEAL_ERROR,
+    error
+});
+
 //GET - retrieve recipes
 export const fetchRecipes = () => dispatch => {
     dispatch(fetchRecipesRequest());
@@ -61,4 +78,15 @@ export const fetchSingleRecipe = id => dispatch => {
         .then(res => res.json())
         .then(res => dispatch(fetchSingleRecipeSuccess(res)))
         .catch(err => dispatch(fetchSingleRecipeError(err)));
+}
+
+//GET - retrieve recipes by meal
+export const fetchRecipesByMeal = meal => dispatch => {
+    dispatch(fetchRecipesByMealRequest());
+    return fetch(`${API_BASE_URL}/api/recipes/meals/${meal}`, {
+            method: 'GET'
+        })
+        .then(res => res.json())
+        .then(res => dispatch(fetchRecipesByMealSuccess(res)))
+        .catch(err => dispatch(fetchRecipesByMealError(err)));
 }
