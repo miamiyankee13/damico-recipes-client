@@ -1,5 +1,6 @@
 //import modules
 import { API_BASE_URL } from '../config';
+import { normalizeResponseErrors } from './utils';
 
 //create action types & creators
 export const FETCH_RECIPES_REQUEST = 'FETCH_RECIPES_REQUEST';
@@ -64,6 +65,7 @@ export const fetchRecipes = () => dispatch => {
     return fetch(`${API_BASE_URL}/api/recipes`, { 
             method: 'GET' 
         })
+        .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(res => dispatch(fetchRecipesSuccess(res)))
         .catch(err => dispatch(fetchRecipesError(err)));
@@ -75,6 +77,7 @@ export const fetchSingleRecipe = id => dispatch => {
     return fetch(`${API_BASE_URL}/api/recipes/${id}`, {
             method: 'GET'
         })
+        .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(res => dispatch(fetchSingleRecipeSuccess(res)))
         .catch(err => dispatch(fetchSingleRecipeError(err)));
@@ -86,6 +89,7 @@ export const fetchRecipesByMeal = meal => dispatch => {
     return fetch(`${API_BASE_URL}/api/recipes/meals/${meal}`, {
             method: 'GET'
         })
+        .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(res => dispatch(fetchRecipesByMealSuccess(res)))
         .catch(err => dispatch(fetchRecipesByMealError(err)));
