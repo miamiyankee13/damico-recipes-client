@@ -11,6 +11,9 @@ import {
     FETCH_RECIPES_BY_MEAL_REQUEST,
     FETCH_RECIPES_BY_MEAL_SUCCESS,
     FETCH_RECIPES_BY_MEAL_ERROR,
+    CREATE_RECIPE_REQUEST,
+    CREATE_RECIPE_SUCCESS,
+    CREATE_RECIPE_ERROR,
     fetchRecipesRequest,
     fetchRecipesSuccess,
     fetchRecipesError,
@@ -23,7 +26,11 @@ import {
     fetchRecipesByMealRequest,
     fetchRecipesByMealSuccess,
     fetchRecipesByMealError,
-    fetchRecipesByMeal
+    fetchRecipesByMeal,
+    createRecipeRequest,
+    createRecipeSuccess,
+    createRecipeError,
+    createRecipe
 } from '../recipes';
 
 describe('Action Creators', function() {
@@ -105,6 +112,29 @@ describe('Action Creators', function() {
             const error = 'Bad request';
             const action = fetchRecipesByMealError(error);
             expect(action.type).toEqual(FETCH_RECIPES_BY_MEAL_ERROR);
+            expect(action.error).toEqual(error);
+        });
+    });
+
+    describe('createRecipeRequest', function() {
+        it('Should return the action', function() {
+            const action = createRecipeRequest();
+            expect(action.type).toEqual(CREATE_RECIPE_REQUEST);
+        });
+    });
+
+    describe('createRecipeSuccess', function() {
+        it('Should return the action', function() {
+            const action = createRecipeSuccess();
+            expect(action.type).toEqual(CREATE_RECIPE_SUCCESS);
+        });
+    });
+
+    describe('createRecipeError', function() {
+        it('Should return the action', function() {
+            const error = 'Bad request';
+            const action = createRecipeError(error);
+            expect(action.type).toEqual(CREATE_RECIPE_ERROR);
             expect(action.error).toEqual(error);
         });
     });
@@ -194,6 +224,49 @@ describe('Async Actions', function() {
                         expect(dispatch).toHaveBeenCalledWith(fetchRecipesByMealRequest());
                         expect(dispatch).toHaveBeenCalledWith(fetchRecipesByMealSuccess(data));
                     })
+        });
+    });
+
+    describe('createRecipe', function() {
+        it('Should dispatch request & success actions', function() {
+            const data = {
+                recipe: {}
+            }
+
+            global.fetch = jest.fn().mockImplementation(() => 
+                Promise.resolve({
+                    ok: true,
+                    json() {
+                        return data;
+                    }
+                })
+            );
+
+            const dispatch = jest.fn();
+            const name = 'recipe';
+            const ingredients = ['ing1, ing2'];
+            const instructions = ['inst1', 'inst2'];
+            const sides = ['side1', 'side2'];
+            const meal = 'meal';
+            const type = 'type';
+
+            return createRecipe(name, ingredients, instructions, sides, meal, type)(dispatch)
+                    .then(function() {
+                        expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/api/recipes`, {
+                            method: 'POST',
+                            headers: { 'content-type': 'application/json' },
+                            body: JSON.stringify({
+                                name,
+                                ingredients,
+                                instructions,
+                                sides,
+                                meal,
+                                type
+                            })
+                        });
+                        expect(dispatch).toHaveBeenCalledWith(createRecipeRequest());
+                        expect(dispatch).toHaveBeenCalledWith(createRecipeSuccess());
+                    });
         });
     });
 });

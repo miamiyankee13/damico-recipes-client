@@ -59,6 +59,22 @@ export const fetchRecipesByMealError = error => ({
     error
 });
 
+export const CREATE_RECIPE_REQUEST = 'CREATE_RECIPE_REQUEST';
+export const createRecipeRequest = () => ({
+    type: CREATE_RECIPE_REQUEST
+});
+
+export const CREATE_RECIPE_SUCCESS = 'CREATE_RECIPE_SUCCESS';
+export const createRecipeSuccess = () => ({
+    type: CREATE_RECIPE_SUCCESS
+});
+
+export const CREATE_RECIPE_ERROR = 'CREATE_RECIPE_ERROR';
+export const createRecipeError = error => ({
+    type: CREATE_RECIPE_ERROR,
+    error
+});
+
 //GET - retrieve recipes
 export const fetchRecipes = () => dispatch => {
     dispatch(fetchRecipesRequest());
@@ -93,4 +109,25 @@ export const fetchRecipesByMeal = meal => dispatch => {
         .then(res => res.json())
         .then(res => dispatch(fetchRecipesByMealSuccess(res)))
         .catch(err => dispatch(fetchRecipesByMealError(err)));
+}
+
+//POST - create recipe
+export const createRecipe = (name, ingredients, instructions, sides, meal, type) => dispatch => {
+    dispatch(createRecipeRequest());
+    return fetch(`${API_BASE_URL}/api/recipes`, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                name,
+                ingredients,
+                instructions,
+                sides,
+                meal,
+                type
+            })
+        })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(() => dispatch(createRecipeSuccess()))
+        .catch(err => dispatch(createRecipeError(err)));
 }
