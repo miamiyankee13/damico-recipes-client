@@ -75,6 +75,22 @@ export const createRecipeError = error => ({
     error
 });
 
+export const EDIT_RECIPE_REQUEST = 'EDIT_RECIPE_REQUEST';
+export const editRecipeRequest = () => ({
+    type: EDIT_RECIPE_REQUEST
+});
+
+export const EDIT_RECIPE_SUCCESS = 'EDIT_RECIPE_SUCCESS';
+export const editRecipeSuccess = () => ({
+    type: EDIT_RECIPE_SUCCESS
+});
+
+export const EDIT_RECIPE_ERROR = 'EDIT_RECIPE_ERROR';
+export const editRecipeError = error => ({
+    type: EDIT_RECIPE_ERROR,
+    error
+});
+
 //GET - retrieve recipes
 export const fetchRecipes = () => dispatch => {
     dispatch(fetchRecipesRequest());
@@ -131,3 +147,6 @@ export const createRecipe = (name, ingredients, instructions, sides, meal, type)
         .then(() => dispatch(createRecipeSuccess()))
         .catch(err => dispatch(createRecipeError(err)));
 }
+
+//PUT - edit recipe
+//TODO
