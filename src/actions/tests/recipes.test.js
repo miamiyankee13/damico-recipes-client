@@ -14,6 +14,9 @@ import {
     CREATE_RECIPE_REQUEST,
     CREATE_RECIPE_SUCCESS,
     CREATE_RECIPE_ERROR,
+    EDIT_RECIPE_REQUEST,
+    EDIT_RECIPE_SUCCESS,
+    EDIT_RECIPE_ERROR,
     fetchRecipesRequest,
     fetchRecipesSuccess,
     fetchRecipesError,
@@ -30,7 +33,11 @@ import {
     createRecipeRequest,
     createRecipeSuccess,
     createRecipeError,
-    createRecipe
+    createRecipe,
+    editRecipeRequest,
+    editRecipeSuccess,
+    editRecipeError
+    
 } from '../recipes';
 
 describe('Action Creators', function() {
@@ -135,6 +142,29 @@ describe('Action Creators', function() {
             const error = 'Bad request';
             const action = createRecipeError(error);
             expect(action.type).toEqual(CREATE_RECIPE_ERROR);
+            expect(action.error).toEqual(error);
+        });
+    });
+
+    describe('editRecipeRequest', function() {
+        it('Should return the action', function() {
+            const action = editRecipeRequest();
+            expect(action.type).toEqual(EDIT_RECIPE_REQUEST)
+        });
+    });
+
+    describe('editRecipeSuccess', function() {
+        it('Should return the action', function() {
+            const action = editRecipeSuccess();
+            expect(action.type).toEqual(EDIT_RECIPE_SUCCESS)
+        });
+    });
+
+    describe('editRecipeError', function() {
+        it('Should return the action', function() {
+            const error = 'Bad request'
+            const action = editRecipeError(error);
+            expect(action.type).toEqual(EDIT_RECIPE_ERROR);
             expect(action.error).toEqual(error);
         });
     });
