@@ -36,7 +36,8 @@ import {
     createRecipe,
     editRecipeRequest,
     editRecipeSuccess,
-    editRecipeError
+    editRecipeError,
+    editRecipe
     
 } from '../recipes';
 
@@ -296,6 +297,51 @@ describe('Async Actions', function() {
                         });
                         expect(dispatch).toHaveBeenCalledWith(createRecipeRequest());
                         expect(dispatch).toHaveBeenCalledWith(createRecipeSuccess());
+                    });
+        });
+    });
+
+    describe('editRecipe', function() {
+        it('Should dispatch request & success actions', function() {
+            const data = {
+                recipe: {}
+            }
+
+            global.fetch = jest.fn().mockImplementation(() => 
+                Promise.resolve({
+                    ok: true,
+                    json() {
+                        return data;
+                    }
+                })
+            );
+
+            const dispatch = jest.fn();
+            const id = 'h2h123h8sadw'
+            const name = 'recipe';
+            const ingredients = ['ing1, ing2'];
+            const instructions = ['inst1', 'inst2'];
+            const sides = ['side1', 'side2'];
+            const meal = 'meal';
+            const type = 'type';
+
+            return editRecipe(id, name, ingredients, instructions, sides, meal, type)(dispatch)
+                    .then(function() {
+                        expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/api/recipes/${id}`, {
+                            method: 'PUT',
+                            headers: { 'content-type': 'application/json' },
+                            body: JSON.stringify({
+                                id,
+                                name,
+                                ingredients,
+                                instructions,
+                                sides,
+                                meal,
+                                type
+                            })
+                        });
+                        expect(dispatch).toHaveBeenCalledWith(editRecipeRequest());
+                        expect(dispatch).toHaveBeenCalledWith(editRecipeSuccess());
                     });
         });
     });
