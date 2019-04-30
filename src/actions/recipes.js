@@ -149,4 +149,23 @@ export const createRecipe = (name, ingredients, instructions, sides, meal, type)
 }
 
 //PUT - edit recipe
-//TODO
+export const editRecipe = (id, name, ingredients, instructions, sides, meal, type) => dispatch => {
+    dispatch(editRecipeRequest());
+    return fetch(`${API_BASE_URL}/api/recipes/${id}`, {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                id,
+                name,
+                ingredients,
+                instructions,
+                sides,
+                meal,
+                type
+            })
+        })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(() => dispatch(editRecipeSuccess()))
+        .catch(err => dispatch(editRecipeError(err)));
+}
