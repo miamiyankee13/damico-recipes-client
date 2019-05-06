@@ -44,4 +44,31 @@ describe('Recipes Reducer', function() {
         });
     });
 
+    describe('fetchRecipesSuccess', function() {
+        it('Should set recipes', function() {
+            const data = { recipes: mockData.recipes };
+            const state = recipesReducer(initialState, fetchRecipesSuccess(data));
+            expect(state).toEqual({
+                recipes: mockData.recipes,
+                currentRecipe: null,
+                loading: false,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('fetchRecipesError', function() {
+        it('Should set error', function() {
+            const state = recipesReducer(initialState, fetchRecipesError(mockData.error));
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: null,
+                error: mockData.error.message 
+            });
+        });
+    });
+
 });
