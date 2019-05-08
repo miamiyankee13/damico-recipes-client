@@ -59,6 +59,23 @@ export const fetchRecipesByMealError = error => ({
     error
 });
 
+export const FETCH_RECIPES_BY_TYPE_REQUEST = 'FETCH_RECIPES_BY_TYPE_REQUEST';
+export const fetchRecipesByTypeRequest = () => ({
+    type: FETCH_RECIPES_BY_TYPE_REQUEST
+});
+
+export const FETCH_RECIPES_BY_TYPE_SUCCESS = 'FETCH_RECIPES_BY_TYPE_SUCCESS';
+export const fetchRecipesByTypeSuccess = data => ({
+    type: FETCH_RECIPES_BY_TYPE_SUCCESS,
+    data
+});
+
+export const FETCH_RECIPES_BY_TYPE_ERROR = 'FETCH_RECIPES_BY_TYPE_ERROR';
+export const fetchRecipesByTypeError = error => ({
+    type: FETCH_RECIPES_BY_TYPE_ERROR,
+    error
+});
+
 export const CREATE_RECIPE_REQUEST = 'CREATE_RECIPE_REQUEST';
 export const createRecipeRequest = () => ({
     type: CREATE_RECIPE_REQUEST
