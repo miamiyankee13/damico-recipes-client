@@ -2,7 +2,10 @@ import recipesReducer from '../recipes';
 import {
     fetchRecipesRequest,
     fetchRecipesSuccess,
-    fetchRecipesError
+    fetchRecipesError,
+    fetchSingleRecipeRequest,
+    fetchSingleRecipeSuccess,
+    fetchSingleRecipeError
 } from '../../actions/recipes';
 
 describe('Recipes Reducer', function() {
@@ -60,7 +63,8 @@ describe('Recipes Reducer', function() {
 
     describe('fetchRecipesError', function() {
         it('Should set error', function() {
-            const state = recipesReducer(initialState, fetchRecipesError(mockData.error));
+            const error = mockData.error;
+            const state = recipesReducer(initialState, fetchRecipesError(error));
             expect(state).toEqual({
                 recipes: [],
                 currentRecipe: null,
@@ -70,5 +74,46 @@ describe('Recipes Reducer', function() {
             });
         });
     });
+
+    describe('fetchSingleRecipeRequest', function() {
+        it('Should make request', function() {
+            const state = recipesReducer(initialState, fetchSingleRecipeRequest());
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: true,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('fetchSingleRecipeSuccess', function() {
+        it('Should set current recipe', function() {
+            const data = mockData.currentRecipe;
+            const state = recipesReducer(initialState, fetchSingleRecipeSuccess(data));
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: mockData.currentRecipe,
+                loading: false,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('fetchSingleRecipeError', function() {
+        it('Should set error', function() {
+            const error = mockData.error;
+            const state = recipesReducer(initialState, fetchSingleRecipeError(error));
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: null,
+                error: mockData.error.message 
+            });
+        });
+    })
 
 });
