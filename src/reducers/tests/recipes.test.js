@@ -5,7 +5,8 @@ import {
     fetchRecipesError,
     fetchSingleRecipeRequest,
     fetchSingleRecipeSuccess,
-    fetchSingleRecipeError
+    fetchSingleRecipeError,
+    clearSingleRecipe
 } from '../../actions/recipes';
 
 describe('Recipes Reducer', function() {
@@ -114,6 +115,20 @@ describe('Recipes Reducer', function() {
                 error: mockData.error.message 
             });
         });
-    })
+    });
+
+    describe('clearSingleRecipe', function() {
+        it('Should reset current recipe', function() {
+            const currentState = {
+                recipes: [],
+                currentRecipe: mockData.currentRecipe,
+                loading: false,
+                feedback: null,
+                error: null
+            };
+            const state = recipesReducer(currentState, clearSingleRecipe());
+            expect(state).toEqual(initialState);
+        });
+    });
 
 });

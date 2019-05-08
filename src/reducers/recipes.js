@@ -59,6 +59,10 @@ export default function reducer(state = initialState, action) {
                 loading: false,
                 error: action.error.message
             });
+        case CLEAR_SINGLE_RECIPE:
+            return Object.assign({}, state, {
+                currentRecipe: null
+            });
         default:
             return state;
     }
