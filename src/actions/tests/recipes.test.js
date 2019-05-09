@@ -11,6 +11,9 @@ import {
     FETCH_RECIPES_BY_MEAL_REQUEST,
     FETCH_RECIPES_BY_MEAL_SUCCESS,
     FETCH_RECIPES_BY_MEAL_ERROR,
+    FETCH_RECIPES_BY_TYPE_REQUEST,
+    FETCH_RECIPES_BY_TYPE_SUCCESS,
+    FETCH_RECIPES_BY_TYPE_ERROR,
     CREATE_RECIPE_REQUEST,
     CREATE_RECIPE_SUCCESS,
     CREATE_RECIPE_ERROR,
@@ -30,6 +33,10 @@ import {
     fetchRecipesByMealSuccess,
     fetchRecipesByMealError,
     fetchRecipesByMeal,
+    fetchRecipesByTypeRequest,
+    fetchRecipesByTypeSuccess,
+    fetchRecipesByTypeError,
+    fetchRecipesByType,
     createRecipeRequest,
     createRecipeSuccess,
     createRecipeError,
@@ -120,6 +127,31 @@ describe('Action Creators', function() {
             const error = 'Bad request';
             const action = fetchRecipesByMealError(error);
             expect(action.type).toEqual(FETCH_RECIPES_BY_MEAL_ERROR);
+            expect(action.error).toEqual(error);
+        });
+    });
+
+    describe('fetchRecipesByTypeRequest', function() {
+        it('Should return the action', function() {
+            const action = fetchRecipesByTypeRequest();
+            expect(action.type).toEqual(FETCH_RECIPES_BY_TYPE_REQUEST);
+        });
+    });
+
+    describe('fetchRecipesByTypeSuccess', function() {
+        it('Should return the action', function() {
+            const recipes = ['Recipe 1', 'Recipe 2'];
+            const action = fetchRecipesByTypeSuccess(recipes);
+            expect(action.type).toEqual(FETCH_RECIPES_BY_TYPE_SUCCESS);
+            expect(action.data).toEqual(recipes);
+        });
+    });
+
+    describe('fetchRecipesByTypeError', function() {
+        it('Should return the action', function() {
+            const error = 'Bad request';
+            const action = fetchRecipesByTypeError(error);
+            expect(action.type).toEqual(FETCH_RECIPES_BY_TYPE_ERROR);
             expect(action.error).toEqual(error);
         });
     });
@@ -245,7 +277,7 @@ describe('Async Actions', function() {
             );
 
             const dispatch = jest.fn();
-            const meal = 'Breakfast'
+            const meal = 'breakfast'
 
             return fetchRecipesByMeal(meal)(dispatch)
                     .then(function() {
@@ -254,6 +286,35 @@ describe('Async Actions', function() {
                         });
                         expect(dispatch).toHaveBeenCalledWith(fetchRecipesByMealRequest());
                         expect(dispatch).toHaveBeenCalledWith(fetchRecipesByMealSuccess(data));
+                    })
+        });
+    });
+
+    describe('fetchRecipesByType', function() {
+        it('Should dispatch request & success actions', function() {
+            const data = {
+                recipes: ['Recipe 1', 'Recipe 2']
+            };
+
+            global.fetch = jest.fn().mockImplementation(() =>
+                Promise.resolve({
+                    ok: true,
+                    json() {
+                        return data;
+                    }
+                })
+            );
+
+            const dispatch = jest.fn();
+            const type = 'chicken'
+
+            return fetchRecipesByType(type)(dispatch)
+                    .then(function() {
+                        expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/api/recipes/types/${type}`, {
+                            method: 'GET'
+                        });
+                        expect(dispatch).toHaveBeenCalledWith(fetchRecipesByTypeRequest());
+                        expect(dispatch).toHaveBeenCalledWith(fetchRecipesByTypeSuccess(data));
                     })
         });
     });

@@ -144,6 +144,18 @@ export const fetchRecipesByMeal = meal => dispatch => {
         .catch(err => dispatch(fetchRecipesByMealError(err)));
 }
 
+//GET - retrieve recipes by type
+export const fetchRecipesByType = type => dispatch => {
+    dispatch(fetchRecipesByTypeRequest());
+    return fetch(`${API_BASE_URL}/api/recipes/types/${type}`, {
+            method: 'GET'
+        })
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(res => dispatch(fetchRecipesByTypeSuccess(res)))
+        .catch(err => dispatch(fetchRecipesByTypeError(err)));
+}
+
 //POST - create recipe
 export const createRecipe = (name, ingredients, instructions, sides, meal, type) => dispatch => {
     dispatch(createRecipeRequest());
