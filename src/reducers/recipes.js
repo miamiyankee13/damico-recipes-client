@@ -82,6 +82,22 @@ export default function reducer(state = initialState, action) {
                 loading: false,
                 error: action.error.message
             });
+        case FETCH_RECIPES_BY_TYPE_REQUEST:
+            return Object.assign({}, state, {
+                loading: true,
+                feedback: null,
+                error: null
+            });
+        case FETCH_RECIPES_BY_TYPE_SUCCESS:
+            return Object.assign({}, state, {
+                loading: false,
+                recipes: action.data.recipes
+            });
+        case FETCH_RECIPES_BY_TYPE_ERROR:
+            return Object.assign({}, state, {
+                loading: false,
+                error: action.error.message
+            });
         default:
             return state;
     }
