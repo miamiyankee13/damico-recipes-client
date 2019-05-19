@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import RecipesPage from './recipes-page';
 
 export default class App extends React.Component {
     render() {
@@ -24,38 +25,7 @@ export default class App extends React.Component {
                     </nav>
                 </header>
                 <main>
-                    <section id="recipes">
-                        <article className="recipe">
-                            <h2 className="recipe__title">Recipe Title</h2>
-                            <h3 className="recipe__meal">Recipe Meal</h3>
-                            <h3 className="recipe__type">Recipe Type</h3>
-                        </article>
-                        <article className="recipe">
-                            <h2 className="recipe__title">Recipe Title</h2>
-                            <h3 className="recipe__meal">Recipe Meal</h3>
-                            <h3 className="recipe__type">Recipe Type</h3>
-                        </article>
-                        <article className="recipe">
-                            <h2 className="recipe__title">Recipe Title</h2>
-                            <h3 className="recipe__meal">Recipe Meal</h3>
-                            <h3 className="recipe__type">Recipe Type</h3>
-                        </article>
-                        <article className="recipe">
-                            <h2 className="recipe__title">Recipe Title</h2>
-                            <h3 className="recipe__meal">Recipe Meal</h3>
-                            <h3 className="recipe__type">Recipe Type</h3>
-                        </article>
-                        <article className="recipe">
-                            <h2 className="recipe__title">Recipe Title</h2>
-                            <h3 className="recipe__meal">Recipe Meal</h3>
-                            <h3 className="recipe__type">Recipe Type</h3>
-                        </article>
-                        <article className="recipe">
-                            <h2 className="recipe__title">Recipe Title</h2>
-                            <h3 className="recipe__meal">Recipe Meal</h3>
-                            <h3 className="recipe__type">Recipe Type</h3>
-                        </article>
-                    </section>
+                    <RecipesPage />
                 </main>
                 <footer className="main-footer">
                     <p className="main-footer__info">Copyright &copy; 2019 Anthony D'Amico</p>
