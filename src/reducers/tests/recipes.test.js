@@ -9,7 +9,10 @@ import {
     clearSingleRecipe,
     fetchRecipesByMealRequest,
     fetchRecipesByMealSuccess,
-    fetchRecipesByMealError
+    fetchRecipesByMealError,
+    fetchRecipesByTypeRequest,
+    fetchRecipesByTypeSuccess,
+    fetchRecipesByTypeError
 } from '../../actions/recipes';
 
 describe('Recipes Reducer', function() {
@@ -175,4 +178,44 @@ describe('Recipes Reducer', function() {
         });
     });
 
+    describe('fetchRecipesByTypeRequest', function() {
+        it('Should make request', function() {
+            const state = recipesReducer(initialState, fetchRecipesByTypeRequest());
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: true,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('fetchRecipesByTypeSuccess', function() {
+        it('Should set recipes', function() {
+            const data = { recipes: mockData.recipes };
+            const state = recipesReducer(initialState, fetchRecipesByTypeSuccess(data));
+            expect(state).toEqual({
+                recipes: mockData.recipes,
+                currentRecipe: null,
+                loading: false,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('fetchRecipesByTypeError', function() {
+        it('Should set error', function() {
+            const error = mockData.error;
+            const state = recipesReducer(initialState, fetchRecipesByTypeError(error));
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: null,
+                error: mockData.error.message 
+            });
+        });
+    });
 });
