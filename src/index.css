@@ -38,6 +38,7 @@ main {
 }
 
 .recipes {
+    padding: 9rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +46,7 @@ main {
 }
 
 .recipe {
+    padding: 9rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +62,7 @@ main {
 
 .recipe__info,
 .recipe__details {
-    padding: 9rem 0;
+    margin: 1rem 0;
     width: 25%;
     min-width: 300px;
 }
