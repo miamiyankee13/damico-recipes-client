@@ -9,12 +9,38 @@ body {
 
 .main-header {
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-nav__items {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav__item {
+    margin: 0 1rem;
 }
 
 #recipes {
-    background-color: white;
+    background-color: linen;
+}
+
+.recipe__title {
+    margin: 0;
+    padding: 1rem 0.5rem;
+}
+
+.recipe__meal,
+.recipe__type {
+    margin: 0;
+    padding: 0.5rem;
 }
 
 .main-footer {
     background-color: white;
+    margin: 0;
+    padding: 0.5rem;
+    text-align: center;
 }

@@ -26,24 +26,34 @@ export default class App extends React.Component {
                 <main>
                     <section id="recipes">
                         <article className="recipe">
-                            <h2>Recipe Title</h2>
-                            <h3>Recipe Meal</h3>
-                            <h3>Recipe Type</h3>
+                            <h2 className="recipe__title">Recipe Title</h2>
+                            <h3 className="recipe__meal">Recipe Meal</h3>
+                            <h3 className="recipe__type">Recipe Type</h3>
                         </article>
                         <article className="recipe">
-                            <h2>Recipe Title</h2>
-                            <h3>Recipe Meal</h3>
-                            <h3>Recipe Type</h3>
+                            <h2 className="recipe__title">Recipe Title</h2>
+                            <h3 className="recipe__meal">Recipe Meal</h3>
+                            <h3 className="recipe__type">Recipe Type</h3>
                         </article>
                         <article className="recipe">
-                            <h2>Recipe Title</h2>
-                            <h3>Recipe Meal</h3>
-                            <h3>Recipe Type</h3>
+                            <h2 className="recipe__title">Recipe Title</h2>
+                            <h3 className="recipe__meal">Recipe Meal</h3>
+                            <h3 className="recipe__type">Recipe Type</h3>
                         </article>
                         <article className="recipe">
-                            <h2>Recipe Title</h2>
-                            <h3>Recipe Meal</h3>
-                            <h3>Recipe Type</h3>
+                            <h2 className="recipe__title">Recipe Title</h2>
+                            <h3 className="recipe__meal">Recipe Meal</h3>
+                            <h3 className="recipe__type">Recipe Type</h3>
+                        </article>
+                        <article className="recipe">
+                            <h2 className="recipe__title">Recipe Title</h2>
+                            <h3 className="recipe__meal">Recipe Meal</h3>
+                            <h3 className="recipe__type">Recipe Type</h3>
+                        </article>
+                        <article className="recipe">
+                            <h2 className="recipe__title">Recipe Title</h2>
+                            <h3 className="recipe__meal">Recipe Meal</h3>
+                            <h3 className="recipe__type">Recipe Type</h3>
                         </article>
                     </section>
                 </main>
