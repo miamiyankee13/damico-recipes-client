@@ -38,6 +38,17 @@ main {
 
 #recipes {
     background-color: linen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.recipe {
+    margin: 1rem 0;
+    text-align: center;
+    width: 30%;
+    min-width: 300px;
 }
 
 .recipe__title {
