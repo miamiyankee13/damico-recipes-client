@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import RecipesPage from './recipes-page';
+import AddRecipePage from './add-recipe-page';
+import EditRecipePage from './edit-recipe-page';
 
-export default class App extends React.Component {
+export class App extends React.Component {
     render() {
         return (
             <React.Fragment>
@@ -16,16 +18,20 @@ export default class App extends React.Component {
                                 <Link to="/">Our Recipes</Link>
                             </li>
                             <li className="main-nav__item">
-                                <Link to="/">Add Recipe</Link>
+                                <Link to="/add">Add Recipe</Link>
                             </li>
                             <li className="main-nav__item">
-                                <Link to="/">Edit Recipe</Link>
+                                <Link to="/edit">Edit Recipe</Link>
                             </li>
                         </ul>
                     </nav>
                 </header>
                 <main>
-                    <RecipesPage />
+                    <Switch>
+                        <Route exact path="/" component={RecipesPage} />
+                        <Route exact path="/add" component={AddRecipePage} />
+                        <Route exact path="/edit" component={EditRecipePage} />
+                    </Switch>
                 </main>
                 <footer className="main-footer">
                     <p className="main-footer__info">Copyright &copy; 2019 Anthony D'Amico</p>
@@ -34,3 +40,5 @@ export default class App extends React.Component {
         );
     }
 }
+
+export default withRouter(App);
