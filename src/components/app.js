@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import RecipesPage from './recipes-page';
+import RecipePage from './recipe-page';
 import AddRecipePage from './add-recipe-page';
 import EditRecipePage from './edit-recipe-page';
 
@@ -29,6 +30,7 @@ export class App extends React.Component {
                 <main>
                     <Switch>
                         <Route exact path="/" component={RecipesPage} />
+                        <Route exact path="/recipes/:id" component={RecipePage} />
                         <Route exact path="/add" component={AddRecipePage} />
                         <Route exact path="/edit" component={EditRecipePage} />
                     </Switch>
