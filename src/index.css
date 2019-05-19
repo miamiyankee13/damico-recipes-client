@@ -4,14 +4,27 @@
 
 body {
     font-family: Helvetica, Arial, sans-serif;
-    background-color: #CCC;
 }
 
 .main-header {
     background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+main {
+    margin-top: 4.125rem;
+    min-height: calc(100vh - 4.125rem - 4.125rem);
+}
+
+.main-header__brand {
+    margin: 0;
 }
 
 .main-nav__items {
