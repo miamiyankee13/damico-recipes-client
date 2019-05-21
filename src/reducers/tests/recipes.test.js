@@ -12,7 +12,10 @@ import {
     fetchRecipesByMealError,
     fetchRecipesByTypeRequest,
     fetchRecipesByTypeSuccess,
-    fetchRecipesByTypeError
+    fetchRecipesByTypeError,
+    createRecipeRequest,
+    createRecipeSuccess,
+    createRecipeError
 } from '../../actions/recipes';
 
 describe('Recipes Reducer', function() {
@@ -215,6 +218,46 @@ describe('Recipes Reducer', function() {
                 loading: false,
                 feedback: null,
                 error: mockData.error.message 
+            });
+        });
+    });
+
+    describe('createRecipeRequest', function() {
+        it('Should make request', function() {
+            const state = recipesReducer(initialState, createRecipeRequest());
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: true,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('createRecipeSuccess', function() {
+        it('Should set feedback', function() {
+            const state = recipesReducer(initialState, createRecipeSuccess());
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: { success: true, message: 'Recipe added!'},
+                error: null 
+            });
+        });
+    });
+
+    describe('createRecipeError', function() {
+        it('Should set error & feedback', function() {
+            const error = mockData.error;
+            const state = recipesReducer(initialState, createRecipeError(error));
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: { success: false, message: mockData.error.message},
+                error: mockData.error.message
             });
         });
     });
