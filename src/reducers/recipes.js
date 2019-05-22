@@ -115,6 +115,23 @@ export default function reducer(state = initialState, action) {
                 feedback: { success: false, message: action.error.message },
                 error: action.error.message
             });
+        case EDIT_RECIPE_REQUEST:
+            return Object.assign({}, state, {
+                loading: true,
+                feedback: null,
+                error: null
+            });
+        case EDIT_RECIPE_SUCCESS:
+            return Object.assign({}, state, {
+                loading: false,
+                feedback: { success: true, message: 'Recipe updated!'}
+            });
+        case EDIT_RECIPE_ERROR:
+            return Object.assign({}, state, {
+                loading: false,
+                feedback: { success: false, message: action.error.message },
+                error: action.error.message
+            });
         default:
             return state;
     }
