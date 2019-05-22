@@ -15,7 +15,10 @@ import {
     fetchRecipesByTypeError,
     createRecipeRequest,
     createRecipeSuccess,
-    createRecipeError
+    createRecipeError,
+    editRecipeRequest,
+    editRecipeSuccess,
+    editRecipeError
 } from '../../actions/recipes';
 
 describe('Recipes Reducer', function() {
@@ -252,6 +255,46 @@ describe('Recipes Reducer', function() {
         it('Should set error & feedback', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, createRecipeError(error));
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: { success: false, message: mockData.error.message},
+                error: mockData.error.message
+            });
+        });
+    });
+
+    describe('editRecipeRequest', function() {
+        it('Should make request', function() {
+            const state = recipesReducer(initialState, editRecipeRequest());
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: true,
+                feedback: null,
+                error: null 
+            });
+        });
+    });
+
+    describe('editRecipeSuccess', function() {
+        it('Should set feedback', function() {
+            const state = recipesReducer(initialState, editRecipeSuccess());
+            expect(state).toEqual({
+                recipes: [],
+                currentRecipe: null,
+                loading: false,
+                feedback: { success: true, message: 'Recipe updated!'},
+                error: null 
+            });
+        });
+    });
+
+    describe('editRecipeError', function() {
+        it('Should set error & feedback', function() {
+            const error = mockData.error;
+            const state = recipesReducer(initialState, editRecipeError(error));
             expect(state).toEqual({
                 recipes: [],
                 currentRecipe: null,
