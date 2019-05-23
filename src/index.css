@@ -70,6 +70,8 @@ main {
 .toggle-button {
     margin: 1.0625rem;
     cursor: pointer;
+    transform: rotateZ(0);
+    transition: transform 300ms ease-out;
 }
 
 .mobile-nav {
@@ -192,7 +194,7 @@ main {
 }
 
 .rotated {
-    animation: rotate-mobile-nav 500ms ease-out forwards;
+    transform: rotateZ(90deg)
 }
 
 @media (min-width: 50rem) {
@@ -202,18 +204,5 @@ main {
 
     .main-nav {
         display: block;
-    }
-}
-
-@keyframes rotate-mobile-nav {
-    0% {
-        transform: rotateZ(0);
-    }
-
-    50% {
-        transform: rotateZ(45deg);
-    }
-    100% {
-        transform: rotateZ(90deg);
     }
 }
