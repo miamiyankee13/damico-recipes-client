@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
+import Backdrop from './backdrop';
 import Header from './header';
 import MobileNav from './mobile-nav';
 import RecipesPage from './recipes-page';
@@ -11,7 +12,8 @@ export class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mobileNav: false
+            mobileNav: false,
+            backdrop: false
         };
 
         this.toggleMobileNav = this.toggleMobileNav.bind(this);
@@ -20,13 +22,17 @@ export class App extends React.Component {
 
     toggleMobileNav() {
         this.setState(prevState => {
-            return { mobileNav: !prevState.mobileNav }
+            return { 
+                mobileNav: !prevState.mobileNav,
+                backdrop: !prevState.backdrop
+            }
         });
     }
     
     render() {
         return (
             <React.Fragment>
+                <Backdrop visible={this.state.backdrop} onClick={this.toggleMobileNav} />
                 <Header toggleMobileNav={this.toggleMobileNav} />
                 <MobileNav visibile={this.state.mobileNav} />
                 <main>

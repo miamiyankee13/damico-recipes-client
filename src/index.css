@@ -14,10 +14,27 @@ body {
 #root {
     height: 100%;
     display: grid;
-    grid-template-rows: 4.125 auto fit-content(4.125rem);
+    grid-template-rows: 4.125rem auto fit-content(4.125rem);
     grid-template-areas: "header"
                          "main"
                          "footer";
+}
+
+main {
+    grid-area: main;
+}
+
+.backdrop {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.2s linear;
 }
 
 .main-header {
@@ -30,10 +47,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-main {
-    grid-area: main;
 }
 
 .main-header__brand {
@@ -173,6 +186,8 @@ main {
 
 .open {
     transform: translateY(0) !important;
+    pointer-events: auto !important;
+    opacity: 1 !important;
 }
 
 @media (min-width: 50rem) {
