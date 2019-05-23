@@ -11,8 +11,9 @@ export class App extends React.Component {
             <React.Fragment>
                 <header className="main-header">
                     <div>
-                        <h1 className="main-header__brand">Anthony & Britt's Recipes</h1>
+                        <h1 className="main-header__brand">D'Amico Recipes</h1>
                     </div>
+                    <i className="fas fa-bars toggle-button"></i>
                     <nav className="main-nav">
                         <ul className="main-nav__items">
                             <li className="main-nav__item">
