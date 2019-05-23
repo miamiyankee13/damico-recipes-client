@@ -33,7 +33,6 @@ body {
 }
 
 main {
-    background-color: linen;
     grid-area: main;
 }
 
@@ -50,8 +49,13 @@ main {
     margin: 0 1rem;
 }
 
+.banner {
+    height: 50vh;
+    background: url('./images/banner.jpg') 50% 65%/cover no-repeat border-box;
+}
+
 .recipes {
-    padding: 9rem 0;
+    padding: 1rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
