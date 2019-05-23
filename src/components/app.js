@@ -33,7 +33,7 @@ export class App extends React.Component {
         return (
             <React.Fragment>
                 <Backdrop visible={this.state.backdrop} onClick={this.toggleMobileNav} />
-                <Header toggleMobileNav={this.toggleMobileNav} />
+                <Header visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
                 <MobileNav visibile={this.state.mobileNav} />
                 <main>
                     <Switch>

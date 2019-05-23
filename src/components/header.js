@@ -8,7 +8,7 @@ export default class Header extends React.Component {
                 <div>
                     <h1 className="main-header__brand">D'Amico Recipes</h1>
                 </div>
-                <i onClick={this.props.toggleMobileNav} className="fas fa-bars toggle-button"></i>
+                <i onClick={this.props.toggleMobileNav} className={this.props.visible ? "fas fa-bars toggle-button rotated" : "fas fa-bars toggle-button"}></i>
                 <Nav />
             </header>
         );
