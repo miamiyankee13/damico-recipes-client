@@ -13,14 +13,13 @@ export class RecipePage extends React.Component {
     }
     
     render() {
-        if (this.props.lodaing || !this.props.currentRecipe) {
-            return <p>Loading...</p>
-        }
-
         if (this.props.error) {
             return <p>{this.props.error}</p>
         }
-
+        
+        if (this.props.lodaing || !this.props.currentRecipe) {
+            return <p>Loading...</p>
+        }
         
         const recipeSides = this.props.currentRecipe.sides.map((side, index) => {
             return <li key={`side-${index}`}>{side}</li>;

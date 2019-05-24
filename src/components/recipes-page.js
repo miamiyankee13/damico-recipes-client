@@ -21,12 +21,12 @@ export class RecipesPage extends React.Component {
     }
     
     render() {
-        if (this.props.lodaing || this.props.recipes.length < 0) {
-            return <p>Loading...</p>
-        }
-
         if (this.props.error) {
             return <p>{this.props.error}</p>
+        }
+
+        if (this.props.lodaing || this.props.recipes.length < 0) {
+            return <p>Loading...</p>
         }
 
         const recipes = this.props.recipes.map((recipe, index) => {
