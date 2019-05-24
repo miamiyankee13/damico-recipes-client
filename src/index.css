@@ -136,9 +136,13 @@ main {
     max-width: 50rem;
     margin: 6rem auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    background: linen;
+    border: 2px solid orangered;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .recipes__item {
@@ -164,7 +168,6 @@ main {
 .recipe__details {
     margin: 1rem 0;
     width: 25%;
-    min-width: 18.75rem;
 }
 
 .recipe__info {
@@ -249,9 +252,13 @@ main {
         display: block;
     }
 
+    .recipe {
+        flex-direction: row;
+    }
+
     .recipe__info,
     .recipe__details {
-        height: 15rem;
+        min-height: 30rem;
     }
 }
 
