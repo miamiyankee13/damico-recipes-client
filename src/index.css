@@ -43,6 +43,7 @@ main {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     width: 100%;
     padding: 0.5rem;
     display: flex;
@@ -130,10 +131,24 @@ main {
 }
 
 .recipes__item {
-    margin: 1rem 0;
-    text-align: center;
-    width: 30%;
+    margin: 1rem 0.5rem;
+    width: 25%;
     min-width: 300px;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linen;
+    border: 2px solid orangered;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.recipes__item:hover,
+.recipes__item:active {
+    animation: push-up 1s ease-out forwards;
 }
 
 .recipe__info,
@@ -167,6 +182,11 @@ main {
 .recipe__details--heading {
     margin: 0;
     padding: 0.5rem;
+}
+
+.recipes__item--meal,
+.recipes__item--type {
+    text-transform: capitalize;
 }
 
 .recipe__details--ingredients,
@@ -210,5 +230,17 @@ main {
 
     .main-nav {
         display: block;
+    }
+}
+
+@keyframes push-up {
+    0% {
+        transform: translateY(0);
+    }
+    33% {
+        transform: translateY(-1.5rem);
+    }
+    100% {
+        transform: translateY(-1rem);
     }
 }
