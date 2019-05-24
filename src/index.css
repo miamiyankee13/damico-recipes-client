@@ -126,7 +126,7 @@ main {
 .main-nav__item a:hover,
 .main-nav__item a:active {
     color: orangered;
-    border-bottom: 3px solid orangered;
+    border-bottom: 2px solid orangered;
 }
 
 .banner {
@@ -154,6 +154,7 @@ main {
     background: linen;
     border: 2px solid orangered;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .recipes__item:hover,
@@ -165,6 +166,8 @@ main {
     margin: 0 0 1rem 0;
     padding: 1rem 0.5rem;
     text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.75rem;
 }
 
 .recipes__item--meal,
@@ -178,6 +181,7 @@ main {
     width: 80%;
     max-width: 50rem;
     margin: 6rem auto;
+    padding: 1rem 0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -209,10 +213,13 @@ main {
     margin: 0 0 1rem 0;
     padding: 1rem 0.5rem;
     text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.75rem;
 }
 
 .recipe__info--heading,
-.recipe__details--heading {
+.recipe__details--heading,
+.recipes__item--heading {
     margin: 0;
     padding: 0.5rem;
 }
@@ -224,7 +231,7 @@ main {
 }
 
 .recipe__details--instructions {
-    margin-top: 0;
+    margin: 0;
 }
 
 .recipe__info--sides li,
