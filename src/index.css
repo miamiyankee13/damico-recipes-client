@@ -120,11 +120,11 @@ main {
 }
 
 .recipe {
-    padding: 9rem 0;
     width: 80%;
-    margin: 0 auto;
+    max-width: 50rem;
+    margin: 6rem auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -144,7 +144,9 @@ main {
 }
 
 .recipe__info {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .recipe__details {
@@ -153,32 +155,34 @@ main {
     align-items: center;
 }
 
-.recipes__item-title,
-.recipe__info-title {
-    margin: 0;
+.recipes__item--title,
+.recipe__info--title {
+    margin: 0 0 0.5rem 0;
     padding: 1rem 0.5rem;
 }
 
-.recipes__item-meal,
-.recipes__item-type,
-.recipe__info-meal,
-.recipe__info-type,
-.recipe__details-title {
+.recipes__item--meal,
+.recipes__item--type,
+.recipe__info--heading,
+.recipe__details--heading {
     margin: 0;
     padding: 0.5rem;
 }
 
-.recipe__details-ingredients {
+.recipe__details--ingredients,
+.recipe__info--sides {
     margin-top: 0;
     padding: 0;
 }
 
-.recipe__details-instructions {
+.recipe__details--instructions {
     margin-top: 0;
+    padding: 0;
 }
 
-.recipe__details-ingredients li,
-.recipe__details-instructions li {
+.recipe__details--ingredients li,
+.recipe__details--instructions li,
+.recipe__info--sides li {
     margin: 0.5rem 0;
 }
 
