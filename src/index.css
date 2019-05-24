@@ -53,6 +53,9 @@ main {
 
 .main-header__brand {
     margin: 0;
+    padding: 0 1rem;
+    font-family: 'Great Vibes', cursive;
+    color: orangered;
 }
 
 .main-nav {
@@ -110,13 +113,22 @@ main {
 .main-nav__item a,
 .mobile-nav__item a {
     text-decoration: none;
-    color: black
 }
 
-.main-nav__item a:hover {
+.main-nav__item a {
+    color: black;
+}
+
+.mobile-nav__item a {
+    color: orangered;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active {
     color: orangered;
     border-bottom: 3px solid orangered;
 }
+
 
 .banner {
     height: 24rem;
@@ -185,7 +197,7 @@ main {
 
 .recipes__item--title,
 .recipe__info--title {
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0;
     padding: 1rem 0.5rem;
     text-align: center;
 }
