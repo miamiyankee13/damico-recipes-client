@@ -129,7 +129,6 @@ main {
     border-bottom: 3px solid orangered;
 }
 
-
 .banner {
     height: 24rem;
     background: url('./images/banner.jpg') 50% 65%/cover no-repeat border-box;
@@ -141,20 +140,6 @@ main {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.recipe {
-    width: 80%;
-    max-width: 50rem;
-    margin: 6rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    background: linen;
-    border: 2px solid orangered;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .recipes__item {
@@ -176,59 +161,75 @@ main {
     animation: push-up 1s ease-out forwards;
 }
 
-.recipe__info,
-.recipe__details {
-    margin: 1rem 0;
-    width: 25%;
-}
-
-.recipe__info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.recipe__details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.recipes__item--title,
-.recipe__info--title {
+.recipes__item--title {
     margin: 0 0 1rem 0;
     padding: 1rem 0.5rem;
     text-align: center;
 }
 
 .recipes__item--meal,
-.recipes__item--type,
+.recipes__item--type {
+    margin: 0;
+    padding: 0.5rem;
+    text-transform: capitalize;
+}
+
+.recipe {
+    width: 80%;
+    max-width: 50rem;
+    margin: 6rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    background: linen;
+    border: 2px solid orangered;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.recipe__info,
+.recipe__details {
+    width: 90%;
+}
+
+.recipe__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe__info--title {
+    margin: 0 0 1rem 0;
+    padding: 1rem 0.5rem;
+    text-align: center;
+}
+
 .recipe__info--heading,
 .recipe__details--heading {
     margin: 0;
     padding: 0.5rem;
 }
 
-.recipes__item--meal,
-.recipes__item--type {
-    text-transform: capitalize;
-}
-
-.recipe__details--ingredients,
-.recipe__info--sides {
+.recipe__info--sides,
+.recipe__details--ingredients {
     margin-top: 0;
     padding: 0;
 }
 
 .recipe__details--instructions {
     margin-top: 0;
-    padding: 0;
 }
 
+.recipe__info--sides li,
 .recipe__details--ingredients li,
-.recipe__details--instructions li,
-.recipe__info--sides li {
+.recipe__details--instructions li {
     margin: 0.5rem 0;
 }
 
@@ -270,7 +271,7 @@ main {
 
     .recipe__info,
     .recipe__details {
-        min-height: 30rem;
+        width: 35%;
     }
 }
 
