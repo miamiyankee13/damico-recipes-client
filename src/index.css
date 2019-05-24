@@ -107,6 +107,17 @@ main {
     font-size: 1.5rem;
 }
 
+.main-nav__item a,
+.mobile-nav__item a {
+    text-decoration: none;
+    color: black
+}
+
+.main-nav__item a:hover {
+    color: orangered;
+    border-bottom: 3px solid orangered;
+}
+
 .banner {
     height: 24rem;
     background: url('./images/banner.jpg') 50% 65%/cover no-repeat border-box;
@@ -209,6 +220,7 @@ main {
 .button {
     margin: 1rem 0;
     padding: 1rem;
+    font-size: 1rem;
 }
 
 .main-footer {
