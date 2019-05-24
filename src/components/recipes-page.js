@@ -4,8 +4,20 @@ import RecipesItem from './recipes-item';
 import { fetchRecipes } from '../actions/recipes';
 
 export class RecipesPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.viewRecipe = this.viewRecipe.bind(this);
+    }
+    
     componentDidMount() {
         this.props.dispatch(fetchRecipes());
+    }
+
+    viewRecipe(event) {
+        const index = event.target.getAttribute('data-index');
+        const recipe = this.props.recipes[index];
+        this.props.history.push(`/recipes/${recipe._id}`);
     }
     
     render() {
@@ -23,6 +35,7 @@ export class RecipesPage extends React.Component {
                         index={index} recipeTitle={recipe.name} 
                         recipeMeal={recipe.meal} 
                         recipeType={recipe.type}
+                        onClick={this.viewRecipe}
                     />
         });
         

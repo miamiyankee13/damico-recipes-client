@@ -1,24 +1,43 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Recipe from './recipe';
+import { fetchSingleRecipe, clearSingleRecipe} from '../actions/recipes';
 
-export default class RecipePage extends React.Component {
+export class RecipePage extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(fetchSingleRecipe(this.props.match.params.id));
+    }
+
+    componentWillUnmount() {
+        this.props.dispatch(clearSingleRecipe());
+    }
+    
     render() {
-        const recipeSides = ['Side 1', 'Side 2'].map((side, index) => {
+        if (this.props.lodaing || !this.props.currentRecipe) {
+            return <p>Loading...</p>
+        }
+
+        if (this.props.error) {
+            return <p>{this.props.error}</p>
+        }
+
+        
+        const recipeSides = this.props.currentRecipe.sides.map((side, index) => {
             return <li key={`side-${index}`}>{side}</li>;
         });
         
-        const recipeIngredients = ['Ingredient 1', 'Ingredient 2'].map((ingredient, index) => {
+        const recipeIngredients = this.props.currentRecipe.ingredients.map((ingredient, index) => {
             return <li key={`ing-${index}`}>{ingredient}</li>;
         });
 
-        const recipeInstructions = ['Step 1', 'Step 2'].map((instruction, index) => {
+        const recipeInstructions = this.props.currentRecipe.instructions.map((instruction, index) => {
             return <li key={`ins-${index}`}>{instruction}</li>;
         });
 
         return (
             <section className="recipe">
                 <Recipe 
-                    recipeTitle="Recipe Title" 
+                    recipeTitle={this.props.currentRecipe.name}
                     sides={recipeSides}
                     ingredients={recipeIngredients}
                     instructions={recipeInstructions}
@@ -27,3 +46,11 @@ export default class RecipePage extends React.Component {
         );
     }
 }
+
+const mapStateToProps = state => ({
+    loading: state.loading,
+    error: state.error,
+    currentRecipe: state.currentRecipe
+});
+
+export default connect(mapStateToProps)(RecipePage);
