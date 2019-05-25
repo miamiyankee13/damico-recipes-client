@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Backdrop from './backdrop';
 import Header from './header';
@@ -51,4 +50,4 @@ export class App extends React.Component {
     }
 }
 
-export default withRouter(connect()(App));
+export default withRouter(App);
