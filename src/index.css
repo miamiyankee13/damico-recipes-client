@@ -15,13 +15,13 @@ body {
 #root {
     height: 100%;
     display: grid;
-    grid-template-rows: 4.125rem auto fit-content(4.125rem);
+    grid-template-rows: 4.375rem auto fit-content(4.3125rem);
     grid-template-areas: "header"
                          "main"
                          "footer";
 }
 
-main {
+.main {
     grid-area: main;
 }
 
@@ -38,7 +38,7 @@ main {
     transition: opacity 0.2s linear;
 }
 
-.main-header {
+.header {
     background-color: white;
     position: fixed;
     top: 0;
@@ -51,28 +51,29 @@ main {
     justify-content: space-between;
 }
 
-.main-header__brand {
+.header__brand {
     margin: 0;
     padding: 0 1rem;
     font-family: 'Great Vibes', cursive;
     color: orangered;
 }
 
-.main-nav {
+.nav {
     display: none;
 }
 
-.main-nav__items {
+.nav__items {
     display: flex;
     list-style: none;
 }
 
-.main-nav__item {
+.nav__item {
     margin: 0 1rem;
 }
 
 .toggle-button {
     margin: 1.0625rem;
+    padding: 2.5px;
     cursor: pointer;
     transform: rotateZ(0);
     transition: transform 300ms ease-out;
@@ -106,24 +107,24 @@ main {
     margin: 1rem 0;
 }
 
-.main-nav__item a,
+.nav__item a,
 .mobile-nav__item a {
     text-decoration: none;
 }
 
-.main-nav__item a {
+.nav__item a {
     color: black;
+}
+
+.nav__item a:hover,
+.nav__item a:active {
+    color: orangered;
+    border-bottom: 2px solid orangered;
 }
 
 .mobile-nav__item a {
     color: orangered;
     font-size: 1.5rem;
-}
-
-.main-nav__item a:hover,
-.main-nav__item a:active {
-    color: orangered;
-    border-bottom: 2px solid orangered;
 }
 
 .banner {
@@ -247,7 +248,7 @@ hr {
     font-size: 1rem;
 }
 
-.main-footer {
+.footer {
     margin: 0;
     padding: 0.5rem;
     text-align: center;
@@ -270,7 +271,7 @@ hr {
         display: none;
     }
 
-    .main-nav {
+    .nav {
         display: block;
     }
 

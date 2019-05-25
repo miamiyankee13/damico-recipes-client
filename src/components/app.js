@@ -34,7 +34,7 @@ export class App extends React.Component {
                 <Backdrop visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
                 <Header visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
                 <MobileNav visibile={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
-                <main>
+                <main className="main">
                     <Switch>
                         <Route exact path="/" component={RecipesPage} />
                         <Route exact path="/recipes/:id" component={RecipePage} />
@@ -42,7 +42,7 @@ export class App extends React.Component {
                         <Route exact path="/edit" component={EditRecipePage} />
                     </Switch>
                 </main>
-                <footer className="main-footer">
+                <footer className="footer">
                     <p className="main-footer__info">Copyright &copy; 2019 Anthony D'Amico</p>
                 </footer>
             </React.Fragment>
