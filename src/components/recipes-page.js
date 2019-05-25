@@ -15,7 +15,7 @@ export class RecipesPage extends React.Component {
     }
 
     viewRecipe(event) {
-        const index = event.target.getAttribute('data-index');
+        const index = event.currentTarget.getAttribute('data-index');
         const recipe = this.props.recipes[index];
         this.props.history.push(`/recipes/${recipe._id}`);
     }
@@ -32,7 +32,8 @@ export class RecipesPage extends React.Component {
         const recipes = this.props.recipes.map((recipe, index) => {
             return <RecipesItem 
                         key={`recipe-${index}`} 
-                        index={index} recipeTitle={recipe.name} 
+                        index={index} 
+                        recipeTitle={recipe.name} 
                         recipeMeal={recipe.meal} 
                         recipeType={recipe.type}
                         onClick={this.viewRecipe}
