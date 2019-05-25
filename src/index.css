@@ -180,7 +180,7 @@ main {
 .recipe {
     width: 80%;
     max-width: 50rem;
-    margin: 6rem auto;
+    margin: 2rem auto;
     padding: 1rem 0;
     display: flex;
     flex-direction: column;
@@ -273,6 +273,7 @@ main {
     }
 
     .recipe {
+        margin: 6rem auto;
         flex-direction: row;
     }
 
