@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from './recipe';
 import { fetchSingleRecipe, clearSingleRecipe} from '../actions/recipes';
+import './styles/recipe-page.css';
 
 export class RecipePage extends React.Component {
     componentDidMount() {

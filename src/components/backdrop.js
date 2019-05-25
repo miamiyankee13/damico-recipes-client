@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/backdrop.css';
 
 export default class Backdrop extends React.Component {
     

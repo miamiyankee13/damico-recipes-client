@@ -1,0 +1,29 @@
+.nav {
+    display: none;
+}
+
+.nav__items {
+    display: flex;
+    list-style: none;
+}
+
+.nav__item {
+    margin: 0 1rem;
+}
+
+.nav__item a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav__item a:hover,
+.nav__item a:active {
+    color: orangered;
+    border-bottom: 2px solid orangered;
+}
+
+@media (min-width: 50rem) {
+    .nav {
+        display: block;
+    }
+}

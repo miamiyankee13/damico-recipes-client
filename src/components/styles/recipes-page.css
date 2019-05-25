@@ -1,0 +1,12 @@
+.banner {
+    height: 24rem;
+    background: url('../../images/banner.jpg') 50% 65%/cover no-repeat border-box;
+}
+
+.recipes {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

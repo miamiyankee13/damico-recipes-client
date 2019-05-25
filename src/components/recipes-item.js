@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/recipes-item.css';
 
 export default class RecipesItem extends React.Component {
     render() {

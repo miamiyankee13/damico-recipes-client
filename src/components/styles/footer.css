@@ -1,0 +1,10 @@
+.footer {
+    margin: 0;
+    padding: 0.5rem;
+    grid-area: footer;
+}
+
+.footer__info {
+    font-family: 'EB Garamond', serif;
+    text-align: center;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RecipesItem from './recipes-item';
 import { fetchRecipes } from '../actions/recipes';
+import './styles/recipes-page.css';
 
 export class RecipesPage extends React.Component {
     constructor(props) {
