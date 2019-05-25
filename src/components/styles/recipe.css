@@ -1,12 +1,12 @@
-.recipe__info,
-.recipe__details {
+.recipe__left,
+.recipe__right {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.recipe__info--title {
+.recipe__title {
     margin: 0 0 1rem 0;
     padding: 1rem 0.5rem;
     text-align: center;
@@ -14,32 +14,32 @@
     font-size: 1.75rem;
 }
 
-.recipe__info--heading,
-.recipe__details--heading {
+.recipe__heading {
     margin: 0;
     padding: 0.5rem;
 }
 
-.recipe__info--sides,
-.recipe__details--ingredients {
+.recipe__sides,
+.recipe__ingredients {
     margin-top: 0;
     padding: 0;
 }
 
-.recipe__details--instructions {
-    margin: 0;
+.recipe__instructions {
+    margin-top: 0;
+    padding: 0 10px 0 35px;
 }
 
-.recipe__info--sides li,
-.recipe__details--ingredients li,
-.recipe__details--instructions li {
+.recipe__sides li,
+.recipe__ingredients li,
+.recipe__instructions li {
     margin: 0.5rem 0;
     font-family: 'EB Garamond', serif;
 }
 
 @media (min-width: 50rem) {
-    .recipe__info,
-    .recipe__details {
+    .recipe__left,
+    .recipe__right {
         width: 35%;
     }
 }
