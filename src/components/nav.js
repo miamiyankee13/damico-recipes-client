@@ -7,13 +7,13 @@ export default class Nav extends React.Component {
             <nav className="main-nav">
                 <ul className="main-nav__items">
                     <li className="main-nav__item">
-                        <Link to="/">Our Recipes</Link>
+                        <Link to="/">our recipes</Link>
                     </li>
                     <li className="main-nav__item">
-                        <Link to="/add">Add Recipe</Link>
+                        <Link to="/add">add recipe</Link>
                     </li>
                     <li className="main-nav__item">
-                        <Link to="/edit">Edit Recipe</Link>
+                        <Link to="/edit">edit recipe</Link>
                     </li>
                 </ul>
             </nav>

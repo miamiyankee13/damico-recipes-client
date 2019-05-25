@@ -11,13 +11,13 @@ export default class MobileNav extends React.Component {
             >
                 <ul className="mobile-nav__items">
                     <li className="mobile-nav__item">
-                        <Link to="/">Our Recipes</Link>
+                        <Link to="/">our recipes</Link>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to="/add">Add Recipe</Link>
+                        <Link to="/add">add recipe</Link>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to="/edit">Edit Recipe</Link>
+                        <Link to="/edit">edit recipe</Link>
                     </li>
                 </ul>
             </nav>

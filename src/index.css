@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-family: 'EB Garamond', serif;
+    font-family: 'Cinzel', serif;
     margin: 0;
     height: 100%;
 }
@@ -105,10 +105,6 @@ main {
 .mobile-nav__item {
     margin: 1rem 0;
 }
-  
-.mobile-nav__item a {
-    font-size: 1.5rem;
-}
 
 .main-nav__item a,
 .mobile-nav__item a {
@@ -121,6 +117,7 @@ main {
 
 .mobile-nav__item a {
     color: orangered;
+    font-size: 1.5rem;
 }
 
 .main-nav__item a:hover,
@@ -174,7 +171,11 @@ main {
 .recipes__item--type {
     margin: 0;
     padding: 0.5rem;
-    text-transform: capitalize;
+    font-family: 'Cinzel', serif;
+}
+
+hr {
+    width: 75%;
 }
 
 .recipe {
@@ -218,8 +219,7 @@ main {
 }
 
 .recipe__info--heading,
-.recipe__details--heading,
-.recipes__item--heading {
+.recipe__details--heading {
     margin: 0;
     padding: 0.5rem;
 }
@@ -238,6 +238,7 @@ main {
 .recipe__details--ingredients li,
 .recipe__details--instructions li {
     margin: 0.5rem 0;
+    font-family: 'EB Garamond', serif;
 }
 
 .button {
