@@ -13,7 +13,6 @@ export class App extends React.Component {
         super(props);
         this.state = {
             mobileNav: false,
-            backdrop: false
         };
 
         this.toggleMobileNav = this.toggleMobileNav.bind(this);
@@ -32,9 +31,9 @@ export class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Backdrop visible={this.state.backdrop} onClick={this.toggleMobileNav} />
+                <Backdrop visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
                 <Header visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
-                <MobileNav visibile={this.state.mobileNav} />
+                <MobileNav visibile={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
                 <main>
                     <Switch>
                         <Route exact path="/" component={RecipesPage} />
