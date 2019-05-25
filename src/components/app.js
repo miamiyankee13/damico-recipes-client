@@ -3,6 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import Backdrop from './backdrop';
 import Header from './header';
 import MobileNav from './mobile-nav';
+import Footer from './footer';
 import RecipesPage from './recipes-page';
 import RecipePage from './recipe-page';
 import AddRecipePage from './add-recipe-page';
@@ -42,9 +43,7 @@ export class App extends React.Component {
                         <Route exact path="/edit" component={EditRecipePage} />
                     </Switch>
                 </main>
-                <footer className="footer">
-                    <p className="main-footer__info">Copyright &copy; 2019 Anthony D'Amico</p>
-                </footer>
+                <Footer />
             </React.Fragment>
         );
     }
