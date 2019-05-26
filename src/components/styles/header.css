@@ -11,7 +11,11 @@
     justify-content: space-between;
 }
 
-.header__brand {
+.header__brand a {
+    text-decoration: none;
+}
+
+.header__brand--heading {
     margin: 0;
     padding: 0 1rem;
     font-family: 'Great Vibes', cursive;
