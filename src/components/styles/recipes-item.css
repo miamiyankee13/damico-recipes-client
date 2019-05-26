@@ -13,11 +13,6 @@
     cursor: pointer;
 }
 
-.recipes__item:hover,
-.recipes__item:active {
-    animation: push-up 1s ease-out forwards;
-}
-
 .recipes__item--title {
     margin: 0 0 1rem 0;
     padding: 1rem 0.5rem;
@@ -35,6 +30,13 @@
 
 hr {
     width: 75%;
+}
+
+@media (min-width: 50rem) {
+    .recipes__item:hover,
+    .recipes__item:active {
+        animation: push-up 1s ease-out forwards;
+    }
 }
 
 @keyframes push-up {
