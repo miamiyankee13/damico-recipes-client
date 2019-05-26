@@ -1,5 +1,5 @@
 .banner {
-    height: 24rem;
+    height: 10rem;
     background: url('../../images/banner.jpg') 50% 65%/cover no-repeat border-box;
 }
 
@@ -9,4 +9,10 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+@media (min-width: 50rem) {
+    .banner {
+        height: 24rem;
+    }
 }
