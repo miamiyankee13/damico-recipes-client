@@ -1,5 +1,5 @@
 {
-  "name": "recipe-app-client",
+  "name": "damico-recipes-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
