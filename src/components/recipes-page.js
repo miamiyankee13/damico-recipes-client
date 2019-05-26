@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import RecipesItem from './recipes-item';
+import Loading from './loading';
 import { fetchRecipes } from '../actions/recipes';
 import './styles/recipes-page.css';
 
@@ -27,7 +28,7 @@ export class RecipesPage extends React.Component {
         }
 
         if (this.props.lodaing || this.props.recipes.length < 0) {
-            return <p>Loading...</p>
+            return <Loading />
         }
 
         const recipes = this.props.recipes.map((recipe, index) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from './recipe';
+import Loading from './loading';
 import { fetchSingleRecipe, clearSingleRecipe} from '../actions/recipes';
 import './styles/recipe-page.css';
 
@@ -19,7 +20,7 @@ export class RecipePage extends React.Component {
         }
         
         if (this.props.lodaing || !this.props.currentRecipe) {
-            return <p>Loading...</p>
+            return <Loading />
         }
         
         const recipeSides = this.props.currentRecipe.sides.map((side, index) => {
