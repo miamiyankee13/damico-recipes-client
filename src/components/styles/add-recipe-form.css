@@ -1,0 +1,47 @@
+.add-form {
+    padding: 1rem;
+    display: grid;
+    grid-auto-rows: 2rem;
+    grid-row-gap: 0.5rem;
+}
+
+.add-form label {
+    padding-top: 1rem;
+    font-weight: bold;
+}
+
+.add-form input {
+    font-size: 1rem;
+}
+
+.add-form input,
+.add-form label,
+.add-form select {
+    display: block;
+    width: 100%;
+}
+
+.add-form button {
+    display: block;
+    width: 6rem;
+    margin: 0 auto;
+}
+
+@media (min-width: 50rem) {
+    .add-form {
+        width: 30rem;
+        margin: auto;
+        grid-template-columns: 10rem auto;
+        grid-row-gap: 1rem;
+        grid-column-gap: 0.5rem;
+    }
+
+    .add-form label {
+        padding-top: 0;
+        font-weight: bold;
+    }
+
+    .add-form button {
+        grid-column: span 2;
+    }
+}

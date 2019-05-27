@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { createRecipe } from '../actions/recipes';
 import MealOptions from './meal-options';
 import TypeOptions from './type-options';
+import './styles/add-recipe-form.css';
 
 export class AddRecipeForm extends React.Component {
     constructor(props) {
