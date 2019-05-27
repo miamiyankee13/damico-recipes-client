@@ -3,7 +3,16 @@ import { Link } from 'react-router-dom';
 import './styles/mobile-nav.css';
 
 export default class MobileNav extends React.Component {
-    
+    constructor(props) {
+        super(props);
+
+        this.scrollTop = this.scrollTop.bind(this);
+    }
+
+    scrollTop() {
+        window.scrollTo(0,0);
+    }
+
     render() {
         return (
             <nav 
@@ -12,13 +21,13 @@ export default class MobileNav extends React.Component {
             >
                 <ul className="mobile-nav__items">
                     <li className="mobile-nav__item">
-                        <Link to="/">our recipes</Link>
+                        <Link to="/" onClick={this.scrollTop}>our recipes</Link>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to="/add">add recipe</Link>
+                        <Link to="/add" onClick={this.scrollTop}>add recipe</Link>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to="/edit">edit recipe</Link>
+                        <Link to="/edit" onClick={this.scrollTop}>edit recipe</Link>
                     </li>
                 </ul>
             </nav>
