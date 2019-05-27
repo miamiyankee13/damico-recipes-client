@@ -71,6 +71,7 @@ export class AddRecipeForm extends React.Component {
         const meal = this.state.mealVal;
         const type = this.state.typeVal;
         this.props.dispatch(createRecipe(name, ingredients, instructions, sides, meal, type));
+        window.scrollTo(0,0);
     }
 
     render() {
