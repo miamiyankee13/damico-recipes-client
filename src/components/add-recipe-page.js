@@ -5,10 +5,6 @@ import AddRecipeForm from './add-recipe-form';
 
 export class AddRecipePage extends React.Component {
     render() {
-        if (this.props.error) {
-            return <p>{this.props.error}</p>
-        }
-
         if (this.props.lodaing) {
             return <Loading />
         }

@@ -30,3 +30,11 @@ body {
     pointer-events: auto !important;
     opacity: 1 !important;
 }
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}

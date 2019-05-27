@@ -16,7 +16,7 @@ export class RecipePage extends React.Component {
     
     render() {
         if (this.props.error) {
-            return <p>{this.props.error}</p>
+            return <p className="error">{this.props.error}</p>
         }
         
         if (this.props.lodaing || !this.props.currentRecipe) {
