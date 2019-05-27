@@ -23,8 +23,15 @@
 
 .add-form button {
     display: block;
-    width: 6rem;
+    width: 8rem;
     margin: 0 auto;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid orangered;
+    border-radius: 10px;
+    background: cornsilk;
+    cursor: pointer;
 }
 
 @media (min-width: 50rem) {
@@ -43,5 +50,10 @@
 
     .add-form button {
         grid-column: span 2;
+    }
+
+    .add-form button:hover,
+    .add-form button:active {
+        transform: scale(1.1);
     }
 }

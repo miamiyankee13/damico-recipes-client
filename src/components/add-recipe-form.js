@@ -136,7 +136,7 @@ export class AddRecipeForm extends React.Component {
                     <option value=''>--Select Type--</option>
                     <TypeOptions />
                 </select>
-                <button type="submit">Add Recipe</button>
+                <button type="submit">add recipe</button>
             </form>
         );
     }
