@@ -10,7 +10,8 @@
     font-weight: bold;
 }
 
-.add-form input {
+.add-form input,
+.add-form select {
     font-size: 1rem;
 }
 
