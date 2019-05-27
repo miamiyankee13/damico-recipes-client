@@ -31,3 +31,9 @@
     color: orangered;
     font-size: 1.5rem;
 }
+
+@media (min-width: 50rem) {
+    .mobile-nav {
+        display: none;
+    }
+}
