@@ -2,7 +2,7 @@
     padding: 1rem;
     display: grid;
     grid-auto-rows: 2rem;
-    grid-row-gap: 0.5rem;
+    grid-row-gap: 1rem;
 }
 
 .add-form label {
@@ -40,7 +40,7 @@
         width: 30rem;
         margin: auto;
         grid-template-columns: 10rem auto;
-        grid-row-gap: 1rem;
+        grid-row-gap: 1.5rem;
         grid-column-gap: 0.5rem;
     }
 
