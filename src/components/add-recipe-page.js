@@ -14,10 +14,10 @@ export class AddRecipePage extends React.Component {
         if (this.props.feedback) {
             switch(this.props.feedback.success) {
                 case true:
-                    message = <p className="add-recipe__message success">{this.props.feedback.message}</p>;
+                    message = <p className="success">{this.props.feedback.message}</p>;
                     break;
                 case false:
-                    message = <p className="add-recipe__message error">{this.props.feedback.message}</p>;
+                    message = <p className="error">{this.props.feedback.message}</p>;
                     break;
                 default:
                     message = '';
