@@ -44,6 +44,7 @@ export default function reducer(state = initialState, action) {
         case FETCH_RECIPES_ERROR:
             return Object.assign({}, state, {
                 loading: false,
+                feedback: { success: false, message: action.error.message },
                 error: action.error.message
             });
         case FETCH_SINGLE_RECIPE_REQUEST:
