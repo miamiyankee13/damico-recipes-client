@@ -1,28 +1,28 @@
-.add-form {
+.add-recipe__form {
     padding: 1rem;
     display: grid;
     grid-template-rows: repeat(12, 2rem) 1rem 2.5rem;
     grid-row-gap: 0.5rem;
 }
 
-.add-form label {
+.add-recipe__form label {
     padding-top: 1rem;
     font-weight: bold;
 }
 
-.add-form input,
-.add-form select {
+.add-recipe__form input,
+.add-recipe__form select {
     font-size: 1rem;
 }
 
-.add-form input,
-.add-form label,
-.add-form select {
+.add-recipe__form input,
+.add-recipe__form label,
+.add-recipe__form select {
     display: block;
     width: 100%;
 }
 
-.add-form button {
+.add-recipe__form button {
     display: block;
     width: 8rem;
     margin: 0 auto;
@@ -37,7 +37,7 @@
 }
 
 @media (min-width: 50rem) {
-    .add-form {
+    .add-recipe__form {
         width: 30rem;
         margin: 0 auto;
         grid-template-rows: repeat(6, 2rem) 0rem 2.5rem;
@@ -46,18 +46,18 @@
         grid-column-gap: 0.5rem;
     }
 
-    .add-form label {
+    .add-recipe__form label {
         padding-top: 0;
         font-weight: bold;
     }
 
-    .add-form button {
+    .add-recipe__form button {
         grid-row: 8;
         grid-column: span 2;
     }
 
-    .add-form button:hover,
-    .add-form button:active {
+    .add-recipe__form button:hover,
+    .add-recipe__form button:active {
         transform: scale(1.1);
     }
 }

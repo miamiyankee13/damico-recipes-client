@@ -1,20 +1,20 @@
-.filter-form {
+.filter__form {
     padding: 0.5rem 0;
     display: grid;
     grid-template-rows: repeat(2, 2rem) 0rem 2.5rem;
     grid-row-gap: 0.5rem;
 }
 
-.filter-form label {
+.filter__form label {
     padding-top: 1rem;
     font-weight: bold;
 }
 
-.filter-form select {
+.filter__form select {
     font-size: 1rem;
 }
 
-.filter-form button {
+.filter__form button {
     display: block;
     width: 8rem;
     margin: 0 auto;
@@ -29,8 +29,8 @@
 }
 
 @media (min-width: 50rem) {
-    .filter-form button:hover,
-    .filter-form button:active {
+    .filter__form button:hover,
+    .filter__form button:active {
         transform: scale(1.1);
     }
 }

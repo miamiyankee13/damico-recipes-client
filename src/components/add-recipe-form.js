@@ -76,51 +76,51 @@ export class AddRecipeForm extends React.Component {
 
     render() {
         return (
-            <form className="add-form" onSubmit={this.handleSubmit}>
-                <label htmlFor="name">name</label>
+            <form className="add-recipe__form" onSubmit={this.handleSubmit}>
+                <label htmlFor="add-recipe__name">name</label>
                 <input 
                     type="text" 
-                    id="name" 
-                    name="name" 
+                    id="add-recipe__name" 
+                    name="add-recipe__name" 
                     value={this.state.nameVal} 
                     onChange={this.handleNameChange}
                     placeholder="name"
                     required
                 />
-                <label htmlFor="ingredients">ingredients</label>
+                <label htmlFor="add-recipe__ingredients">ingredients</label>
                 <input 
                     type="text" 
-                    id="ingredients" 
-                    name="ingredients" 
+                    id="add-recipe__ingredients" 
+                    name="add-recipe__ingredients" 
                     value={this.state.ingredientsVal} 
                     onChange={this.handleIngredientsChange}
                     placeholder="ingredient, ingredient"
                     required
                 />
-                <label htmlFor="instructions">instructions</label>
+                <label htmlFor="add-recipe__instructions">instructions</label>
                 <input 
                     type="text" 
-                    id="instructions" 
-                    name="instructions" 
+                    id="add-recipe__instructions" 
+                    name="add-recipe__instructions" 
                     value={this.state.instructionsVal} 
                     onChange={this.handleInstructionsChange}
                     placeholder="instruction, instruction"
                     required
                 />
-                <label htmlFor="sides">sides</label>
+                <label htmlFor="add-recipe__sides">sides</label>
                 <input 
                     type="text" 
-                    id="sides" 
-                    name="sides" 
+                    id="add-recipe__sides" 
+                    name="add-recipe__sides" 
                     value={this.state.sidesVal} 
                     onChange={this.handleSidesChange}
                     placeholder="side, side"
                     required
                 />
-                <label htmlFor="meal">meal</label>
+                <label htmlFor="add-recipe__meal">meal</label>
                 <select 
-                    id="meal" 
-                    name="meal" 
+                    id="add-recipe__meal" 
+                    name="add-recipe__meal" 
                     value={this.state.mealVal} 
                     onChange={this.handleMealChange}
                     required
@@ -128,10 +128,10 @@ export class AddRecipeForm extends React.Component {
                     <option value=''>--Select Meal--</option>
                     <MealOptions />
                 </select>
-                <label htmlFor="type">type</label>
+                <label htmlFor="add-recipe__type">type</label>
                 <select 
-                    id="type" 
-                    name="type" 
+                    id="add-recipe__type" 
+                    name="add-recipe__type" 
                     value={this.state.typeVal} 
                     onChange={this.handleTypeChange}
                     required

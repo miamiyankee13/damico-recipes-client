@@ -33,11 +33,11 @@ export class MealFilter extends React.Component {
 
     render() {
         return (
-            <form className="filter-form" onSubmit={this.handleSubmit}>
-                <label htmlFor="meal">filter by meal</label>
+            <form className="filter__form" onSubmit={this.handleSubmit}>
+                <label htmlFor="filter__meal">filter by meal</label>
                 <select 
-                    id="meal" 
-                    name="meal" 
+                    id="filter__meal" 
+                    name="filter__meal" 
                     value={this.state.mealVal} 
                     onChange={this.handleMealChange}
                     required

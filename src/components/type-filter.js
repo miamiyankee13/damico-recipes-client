@@ -33,11 +33,11 @@ export class TypeFilter extends React.Component {
 
     render() {
         return (
-            <form className="filter-form" onSubmit={this.handleSubmit}>
-                <label htmlFor="type">filter by type</label>
+            <form className="filter__form" onSubmit={this.handleSubmit}>
+                <label htmlFor="filter__type">filter by type</label>
                 <select 
-                    id="type" 
-                    name="type" 
+                    id="filter__type" 
+                    name="filter__type" 
                     value={this.state.typeVal} 
                     onChange={this.handleTypeChange}
                     required

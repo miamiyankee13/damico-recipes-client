@@ -87,11 +87,11 @@ export class EditRecipeForm extends React.Component {
 
     render() {
         return (
-            <form className="edit-form" onSubmit={this.handleSubmit}>
-                <label htmlFor="recipe">recipe</label>
+            <form className="edit-recipe__form" onSubmit={this.handleSubmit}>
+                <label htmlFor="edit-recipe__recipe">recipe</label>
                 <select 
-                    id="recipe" 
-                    name="recipe" 
+                    id="edit-recipe__recipe" 
+                    name="edit-recipe__recipe" 
                     value={this.state.recipeVal} 
                     onChange={this.handleRecipeChange}
                     required
@@ -99,50 +99,50 @@ export class EditRecipeForm extends React.Component {
                     <option value=''>--Select Recipe--</option>
                     <RecipeOptions />
                 </select>
-                <label htmlFor="name">name</label>
+                <label htmlFor="edit-recipe__name">name</label>
                 <input 
                     type="text" 
-                    id="name" 
-                    name="name" 
+                    id="edit-recipe__name" 
+                    name="edit-recipe__name" 
                     value={this.state.nameVal} 
                     onChange={this.handleNameChange}
                     placeholder="name"
                     required
                 />
-                <label htmlFor="ingredients">ingredients</label>
+                <label htmlFor="edit-recipe__ingredients">ingredients</label>
                 <input 
                     type="text" 
-                    id="ingredients" 
-                    name="ingredients" 
+                    id="edit-recipe__ingredients" 
+                    name="edit-recipe__ingredients" 
                     value={this.state.ingredientsVal} 
                     onChange={this.handleIngredientsChange}
                     placeholder="ingredient, ingredient"
                     required
                 />
-                <label htmlFor="instructions">instructions</label>
+                <label htmlFor="edit-recipe__instructions">instructions</label>
                 <input 
                     type="text" 
-                    id="instructions" 
-                    name="instructions" 
+                    id="edit-recipe__instructions" 
+                    name="edit-recipe__instructions" 
                     value={this.state.instructionsVal} 
                     onChange={this.handleInstructionsChange}
                     placeholder="instruction, instruction"
                     required
                 />
-                <label htmlFor="sides">sides</label>
+                <label htmlFor="edit-recipe__sides">sides</label>
                 <input 
                     type="text" 
-                    id="sides" 
-                    name="sides" 
+                    id="edit-recipe__sides" 
+                    name="edit-recipe__sides" 
                     value={this.state.sidesVal} 
                     onChange={this.handleSidesChange}
                     placeholder="side, side"
                     required
                 />
-                <label htmlFor="meal">meal</label>
+                <label htmlFor="edit-recipe__meal">meal</label>
                 <select 
-                    id="meal" 
-                    name="meal" 
+                    id="edit-recipe__meal" 
+                    name="edit-recipe__meal" 
                     value={this.state.mealVal} 
                     onChange={this.handleMealChange}
                     required
@@ -150,10 +150,10 @@ export class EditRecipeForm extends React.Component {
                     <option value=''>--Select Meal--</option>
                     <MealOptions />
                 </select>
-                <label htmlFor="type">type</label>
+                <label htmlFor="edit-recipe__type">type</label>
                 <select 
-                    id="type" 
-                    name="type" 
+                    id="edit-recipe__type" 
+                    name="edit-recipe__type" 
                     value={this.state.typeVal} 
                     onChange={this.handleTypeChange}
                     required
