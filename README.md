@@ -1,4 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# D'Amico Recipes
+
+## Summary
+D'Amico Recipes is a personal recipe tracker for the D'Amico family. Feel free to use our recipes, add one to our collection, or even updated an existing recipe (we would love to try some new things but can't promise the updates will stay if the original was better!). The data for this application is provided by the [D'Amico Recipes API](https://github.com/miamiyankee13/damico-recipes-api).
+
+## Live Demo
+[D'Amico Recipes](https://damico-recipes-client.herokuapp.com/)
+
+## Features
+* Browse recipes
+* Add a new recipe
+* Edit an existing recipe
+
+## Built With
+* HTML
+* CSS
+* JavaScript
+* React
+* Redux
+* React Router
+* Redux Thunk
+* Jest
+
+## Screenshots
+[![damico-recipes-recipes-page.png](https://i.postimg.cc/FK4hspKG/damico-recipes-recipes-page.png)](https://postimg.cc/4YBDWzVh)
+[![damico-recipes-mobile-view.png](https://i.postimg.cc/5y6VkkP9/damico-recipes-mobile-view.png)](https://postimg.cc/bScWZLc4)
+[![damico-recipes-mobile-nav.png](https://i.postimg.cc/d1WF6KjS/damico-recipes-mobile-nav.png)](https://postimg.cc/R6n2Cy8c)
+[![damico-recipes-add.png](https://i.postimg.cc/fypN4jFc/damico-recipes-add.png)](https://postimg.cc/30X6mp3N)
+[![damico-recipes-edit.png](https://i.postimg.cc/RCD9n4FW/damico-recipes-edit.png)](https://postimg.cc/0rDhTg7v)
 
 ## Available Scripts
 
@@ -37,32 +65,5 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Authors
+* **Anthony D'Amico** [miamiyankee13](https://github.com/miamiyankee13)
