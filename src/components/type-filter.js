@@ -27,10 +27,12 @@ export class TypeFilter extends React.Component {
         if (type === 'all') {
             this.props.dispatch(fetchRecipes()).then(() => {
                 this.setState({ typeVal: '' });
+                this.props.disableFiltered();
             });
         } else {
             this.props.dispatch(fetchRecipesByType(type)).then(() => {
                 this.setState({ typeVal: '' });
+                this.props.enableFiltered(type);
             });
         }
     }

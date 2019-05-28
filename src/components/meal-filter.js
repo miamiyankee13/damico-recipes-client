@@ -27,10 +27,12 @@ export class MealFilter extends React.Component {
         if (meal === 'all') {
             this.props.dispatch(fetchRecipes()).then(() => {
                 this.setState({ mealVal: '' });
+                this.props.disableFiltered();
             });
         } else {
             this.props.dispatch(fetchRecipesByMeal(meal)).then(() => {
                 this.setState({ mealVal: '' });
+                this.props.enableFiltered(meal);
             });
         }
     }

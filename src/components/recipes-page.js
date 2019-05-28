@@ -10,8 +10,14 @@ import './styles/recipes-page.css';
 export class RecipesPage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            filtered: false,
+            filter: ''
+        }
 
         this.viewRecipe = this.viewRecipe.bind(this);
+        this.enableFiltered = this.enableFiltered.bind(this);
+        this.disableFiltered = this.disableFiltered.bind(this);
     }
     
     componentDidMount() {
@@ -22,6 +28,20 @@ export class RecipesPage extends React.Component {
         const index = event.currentTarget.getAttribute('data-index');
         const recipe = this.props.recipes[index];
         this.props.history.push(`/recipes/${recipe._id}`);
+    }
+
+    enableFiltered(filter) {
+        this.setState({
+            filtered: true,
+            filter
+        });
+    }
+
+    disableFiltered() {
+        this.setState({
+            filtered: false,
+            filter: ''
+        });
     }
     
     render() {
@@ -54,12 +74,21 @@ export class RecipesPage extends React.Component {
                 <section className="banner"></section>
                 <section className="filters">
                     <div>
-                        <MealFilter />
+                        <MealFilter 
+                            filtered={this.state.filtered}
+                            enableFiltered={this.enableFiltered}
+                            disableFiltered={this.disableFiltered} 
+                        />
                     </div>
                     <div>
-                        <TypeFilter />
+                        <TypeFilter 
+                            filtered={this.state.filtered}
+                            enableFiltered={this.enableFiltered}
+                            disableFiltered={this.disableFiltered} 
+                        />
                     </div>
                 </section>
+                <h2 className="filter-message">{this.state.filtered ? `filtered by ${this.state.filter}` : 'all recipes'}</h2>
                 <section className="recipes">
                     {recipes}
                     {message}
