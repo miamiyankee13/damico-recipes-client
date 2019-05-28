@@ -25,9 +25,13 @@ export class TypeFilter extends React.Component {
         event.preventDefault();
         const type = this.state.typeVal;
         if (type === 'all') {
-            this.props.dispatch(fetchRecipes());
+            this.props.dispatch(fetchRecipes()).then(() => {
+                this.setState({ typeVal: '' });
+            });
         } else {
-            this.props.dispatch(fetchRecipesByType(type));
+            this.props.dispatch(fetchRecipesByType(type)).then(() => {
+                this.setState({ typeVal: '' });
+            });
         }
     }
 

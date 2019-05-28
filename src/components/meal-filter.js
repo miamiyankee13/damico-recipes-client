@@ -25,9 +25,13 @@ export class MealFilter extends React.Component {
         event.preventDefault();
         const meal = this.state.mealVal;
         if (meal === 'all') {
-            this.props.dispatch(fetchRecipes());
+            this.props.dispatch(fetchRecipes()).then(() => {
+                this.setState({ mealVal: '' });
+            });
         } else {
-            this.props.dispatch(fetchRecipesByMeal(meal));
+            this.props.dispatch(fetchRecipesByMeal(meal)).then(() => {
+                this.setState({ mealVal: '' });
+            });
         }
     }
 
