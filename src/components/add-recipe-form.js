@@ -123,6 +123,7 @@ export class AddRecipeForm extends React.Component {
                     name="meal" 
                     value={this.state.mealVal} 
                     onChange={this.handleMealChange}
+                    required
                 >
                     <option value=''>--Select Meal--</option>
                     <MealOptions />
@@ -133,6 +134,7 @@ export class AddRecipeForm extends React.Component {
                     name="type" 
                     value={this.state.typeVal} 
                     onChange={this.handleTypeChange}
+                    required
                 >
                     <option value=''>--Select Type--</option>
                     <TypeOptions />
