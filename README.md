@@ -1,7 +1,7 @@
 # D'Amico Recipes
 
 ## Summary
-D'Amico Recipes is a personal recipe tracker for the D'Amico family. Feel free to use our recipes, add one to our collection, or even updated an existing recipe (we would love to try some new things but can't promise the updates will stay if the original was better!). The data for this application is provided by the [D'Amico Recipes API](https://github.com/miamiyankee13/damico-recipes-api).
+D'Amico Recipes is a personal recipe tracker for the D'Amico family. Feel free to use our recipes, add one to our collection, or even updated an existing recipe (we would love to try some new things but can't promise the updates will stay if the original was better!). The data for this application is provided by the D'Amico Recipes [API](https://github.com/miamiyankee13/damico-recipes-api).
 
 ## Live Demo
 [D'Amico Recipes](https://damico-recipes-client.herokuapp.com/)
