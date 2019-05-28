@@ -72,7 +72,7 @@ export class RecipesPage extends React.Component {
         return (
             <React.Fragment>
                 <section className="banner"></section>
-                <h2 className="filter-message">{this.state.filtered ? `filtered by ${this.state.filter}` : 'all recipes'}</h2>
+                <h2 className="filter-message">{this.state.filtered ? `filtered by ${this.state.filter}` : 'our recipes'}</h2>
                 <section className="recipes">
                     {recipes}
                     {message}
