@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RecipesItem from './recipes-item';
 import Loading from './loading';
+import MealFilter from './meal-filter';
+import TypeFilter from './type-filter';
 import { fetchRecipes } from '../actions/recipes';
 import './styles/recipes-page.css';
 
@@ -27,8 +29,13 @@ export class RecipesPage extends React.Component {
             return <p className="error">{this.props.error}</p>
         }
 
-        if (this.props.lodaing || this.props.recipes.length < 0) {
+        if (this.props.lodaing) {
             return <Loading />
+        }
+
+        let message = '';
+        if  (this.props.recipes.length <= 0) {
+            message= <p className="filter-message">there are no recipes matching the entered criteria</p>;
         }
 
         const recipes = this.props.recipes.map((recipe, index) => {
@@ -45,8 +52,17 @@ export class RecipesPage extends React.Component {
         return (
             <React.Fragment>
                 <section className="banner"></section>
+                <section className="filters">
+                    <div>
+                        <MealFilter />
+                    </div>
+                    <div>
+                        <TypeFilter />
+                    </div>
+                </section>
                 <section className="recipes">
                     {recipes}
+                    {message}
                 </section>
             </React.Fragment>
         );
