@@ -82,7 +82,7 @@ describe('Recipes Reducer', function() {
                 recipes: [],
                 currentRecipe: null,
                 loading: false,
-                feedback: null,
+                feedback: { success: false, message: mockData.error.message},
                 error: mockData.error.message 
             });
         });
