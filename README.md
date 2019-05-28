@@ -8,6 +8,8 @@ D'Amico Recipes is a personal recipe tracker for the D'Amico family. Feel free t
 
 ## Features
 * Browse recipes
+* Browse recipes by meal
+* Browse recipes by type
 * Add a new recipe
 * Edit an existing recipe
 
