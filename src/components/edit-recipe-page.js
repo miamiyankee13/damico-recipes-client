@@ -1,7 +1,48 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions/recipes';
+import Loading from './loading';
+import EditRecipeForm from './edit-recipe-form';
+import './styles/edit-recipe-page.css';
 
-export default class EditRecipePage extends React.Component {
+export class EditRecipePage extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(fetchRecipes());
+    }
+    
     render() {
-        return <h2>Edit Recipe</h2>;
+        if (this.props.lodaing) {
+            return <Loading />
+        }
+
+        let message;
+        if (this.props.feedback) {
+            switch(this.props.feedback.success) {
+                case true:
+                    message = <p className="success">{this.props.feedback.message}</p>;
+                    break;
+                case false:
+                    message = <p className="error">{this.props.feedback.message}</p>;
+                    break;
+                default:
+                    message = '';
+            }
+        }
+
+        return (
+            <section className="edit-recipe">
+                <h2 className="edit-recipe__title">edit an existing recipe</h2>
+                {message}
+                <EditRecipeForm />
+            </section>
+        );
     }
 }
+
+const mapStateToProps = state => ({
+    loading: state.loading,
+    error: state.error,
+    feedback: state.feedback
+});
+
+export default connect(mapStateToProps)(EditRecipePage);
