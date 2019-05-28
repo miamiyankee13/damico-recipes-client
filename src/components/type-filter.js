@@ -29,11 +29,13 @@ export class TypeFilter extends React.Component {
                 this.setState({ typeVal: '' });
                 this.props.disableFiltered();
             });
+            window.scrollTo(0,0);
         } else {
             this.props.dispatch(fetchRecipesByType(type)).then(() => {
                 this.setState({ typeVal: '' });
                 this.props.enableFiltered(type);
             });
+            window.scrollTo(0,0);
         }
     }
 

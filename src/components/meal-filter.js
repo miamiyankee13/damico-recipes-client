@@ -29,11 +29,13 @@ export class MealFilter extends React.Component {
                 this.setState({ mealVal: '' });
                 this.props.disableFiltered();
             });
+            window.scrollTo(0,0);
         } else {
             this.props.dispatch(fetchRecipesByMeal(meal)).then(() => {
                 this.setState({ mealVal: '' });
                 this.props.enableFiltered(meal);
             });
+            window.scrollTo(0,0);
         }
     }
 
