@@ -8,6 +8,7 @@ import RecipesPage from './recipes-page';
 import RecipePage from './recipe-page';
 import AddRecipePage from './add-recipe-page';
 import EditRecipePage from './edit-recipe-page';
+import NotFoundPage from './not-found-page';
 
 export class App extends React.Component {
     constructor(props) {
@@ -41,6 +42,7 @@ export class App extends React.Component {
                         <Route exact path="/recipes/:id" component={RecipePage} />
                         <Route exact path="/add" component={AddRecipePage} />
                         <Route exact path="/edit" component={EditRecipePage} />
+                        <Route component={NotFoundPage} />
                     </Switch>
                 </main>
                 <Footer />
