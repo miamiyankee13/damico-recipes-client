@@ -1,0 +1,14 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+env:
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: qw5kcM/nNN3OW/ll3x7G5wJ3mxPWNZVn5Gq02rBLyfyRebmrt+ItFVjlyp3rnDGApMgfeh26ArgX3z2oQv0cG7wo/tgRjtXgrDQ7KGhjAQnD9GyNDMbRcodmwdtc7UFVfdcxdmP3iRJEVI1HgafBhbAbwkYMPQCM6dzSibjucr64PZ+82yJD5pV2cjAkjFRx9JRT84XL44z/JCb+F+LRBmL9PYEFeESYkMHdBeAJrH5FSN7LozvPkWXZfhlk6oRH+sk1kfk1rbPZULG7jhHm0bkfsuLCfWiECCjd8HMsUp5CBrneRr87iKtZqgkBgzi36qvl2bY88DgYiQq9zS21lRiFVTvsqPWeQWThm8ht8som5n6tZJA4rgWv3D8j5pH4ybDCeEUpNnExDLd8f08Cj3LuUj14xQqGGTbxPOwKs0VyZvwBLlfMsQE67y2LRRShhAZlrJ+24z7Rqkzr4vLWHn6XEoio/lUj34mr9QpPZ+goNsMAIP0NbTyLqmmAyI9hOeYp8kVpwJM+ZKLCA0SiqucXtm0LtfmQWhQZtW9nJ1VTSF/XJQ8iHA2IyOmvyKXSXhdddB6810t21jYIDMJa6dg6wnTFkhmbnA94aDu+tCn8vPs3jUNj2U6DLKn8Q4rWG2kR3ex7pETC9AbA+QFSV9ZFCA7NmhN1E6rugrfNlTQ=
+  app: damico-recipes-client
+  on:
+    repo: miamiyankee13/damico-recipes-client
