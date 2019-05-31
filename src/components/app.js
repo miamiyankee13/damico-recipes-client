@@ -21,11 +21,11 @@ export class App extends React.Component {
 
     }
 
+    //toggle status of mobile nav
     toggleMobileNav() {
         this.setState(prevState => {
             return { 
                 mobileNav: !prevState.mobileNav,
-                backdrop: !prevState.backdrop
             }
         });
     }
