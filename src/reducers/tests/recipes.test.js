@@ -23,7 +23,7 @@ import {
 
 describe('Recipes Reducer', function() {
     const initialState = {
-        recipes: [],
+        recipes: null,
         currentRecipe: null,
         loading: false,
         feedback: null,
@@ -51,7 +51,7 @@ describe('Recipes Reducer', function() {
         it('Should make request', function() {
             const state = recipesReducer(initialState, fetchRecipesRequest());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: true,
                 feedback: null,
@@ -79,7 +79,7 @@ describe('Recipes Reducer', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, fetchRecipesError(error));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: { success: false, message: mockData.error.message},
@@ -92,7 +92,7 @@ describe('Recipes Reducer', function() {
         it('Should make request', function() {
             const state = recipesReducer(initialState, fetchSingleRecipeRequest());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: true,
                 feedback: null,
@@ -106,7 +106,7 @@ describe('Recipes Reducer', function() {
             const data = mockData.currentRecipe;
             const state = recipesReducer(initialState, fetchSingleRecipeSuccess(data));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: mockData.currentRecipe,
                 loading: false,
                 feedback: null,
@@ -120,7 +120,7 @@ describe('Recipes Reducer', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, fetchSingleRecipeError(error));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: null,
@@ -132,7 +132,7 @@ describe('Recipes Reducer', function() {
     describe('clearSingleRecipe', function() {
         it('Should reset current recipe', function() {
             const currentState = {
-                recipes: [],
+                recipes: null,
                 currentRecipe: mockData.currentRecipe,
                 loading: false,
                 feedback: null,
@@ -147,7 +147,7 @@ describe('Recipes Reducer', function() {
         it('Should make request', function() {
             const state = recipesReducer(initialState, fetchRecipesByMealRequest());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: true,
                 feedback: null,
@@ -175,7 +175,7 @@ describe('Recipes Reducer', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, fetchRecipesByMealError(error));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: null,
@@ -188,7 +188,7 @@ describe('Recipes Reducer', function() {
         it('Should make request', function() {
             const state = recipesReducer(initialState, fetchRecipesByTypeRequest());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: true,
                 feedback: null,
@@ -216,7 +216,7 @@ describe('Recipes Reducer', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, fetchRecipesByTypeError(error));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: null,
@@ -229,7 +229,7 @@ describe('Recipes Reducer', function() {
         it('Should make request', function() {
             const state = recipesReducer(initialState, createRecipeRequest());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: true,
                 feedback: null,
@@ -242,7 +242,7 @@ describe('Recipes Reducer', function() {
         it('Should set feedback', function() {
             const state = recipesReducer(initialState, createRecipeSuccess());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: { success: true, message: 'Recipe added!'},
@@ -256,7 +256,7 @@ describe('Recipes Reducer', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, createRecipeError(error));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: { success: false, message: mockData.error.message},
@@ -269,7 +269,7 @@ describe('Recipes Reducer', function() {
         it('Should make request', function() {
             const state = recipesReducer(initialState, editRecipeRequest());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: true,
                 feedback: null,
@@ -282,7 +282,7 @@ describe('Recipes Reducer', function() {
         it('Should set feedback', function() {
             const state = recipesReducer(initialState, editRecipeSuccess());
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: { success: true, message: 'Recipe updated!'},
@@ -296,7 +296,7 @@ describe('Recipes Reducer', function() {
             const error = mockData.error;
             const state = recipesReducer(initialState, editRecipeError(error));
             expect(state).toEqual({
-                recipes: [],
+                recipes: null,
                 currentRecipe: null,
                 loading: false,
                 feedback: { success: false, message: mockData.error.message},

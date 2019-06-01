@@ -21,7 +21,7 @@ import {
 } from '../actions/recipes';
 
 const initialState = {
-    recipes: [],
+    recipes: null,
     currentRecipe: null,
     loading: false,
     feedback: null,
