@@ -18,7 +18,6 @@ export class App extends React.Component {
         };
 
         this.toggleMobileNav = this.toggleMobileNav.bind(this);
-
     }
 
     //toggle status of mobile nav

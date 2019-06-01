@@ -20,16 +20,19 @@ export class RecipesPage extends React.Component {
         this.disableFiltered = this.disableFiltered.bind(this);
     }
     
+    //fetch recipes
     componentDidMount() {
         this.props.dispatch(fetchRecipes());
     }
 
+    //view individual recipe
     viewRecipe(event) {
         const index = event.currentTarget.getAttribute('data-index');
         const recipe = this.props.recipes[index];
         this.props.history.push(`/recipes/${recipe._id}`);
     }
 
+    //enable filtered status & set filter value
     enableFiltered(filter) {
         this.setState({
             filtered: true,
@@ -37,6 +40,7 @@ export class RecipesPage extends React.Component {
         });
     }
 
+    //disable filtered status & clear filter value
     disableFiltered() {
         this.setState({
             filtered: false,
