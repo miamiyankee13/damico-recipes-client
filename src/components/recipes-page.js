@@ -59,7 +59,7 @@ export class RecipesPage extends React.Component {
 
         let message = '';
         if  (this.props.recipes.length <= 0) {
-            message= <p className="filter-message">there are no recipes matching the entered criteria</p>;
+            message= <p className="filter-message">there are no recipes matching the selected criteria</p>;
         }
 
         const recipes = this.props.recipes.map((recipe, index) => {

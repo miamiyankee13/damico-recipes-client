@@ -6,10 +6,12 @@ import { fetchSingleRecipe, clearSingleRecipe} from '../actions/recipes';
 import './styles/recipe-page.css';
 
 export class RecipePage extends React.Component {
+    //fetch single recipe
     componentDidMount() {
         this.props.dispatch(fetchSingleRecipe(this.props.match.params.id));
     }
 
+    //clear single recipe
     componentWillUnmount() {
         this.props.dispatch(clearSingleRecipe());
     }
