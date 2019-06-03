@@ -49,19 +49,23 @@ export class RecipesPage extends React.Component {
     }
     
     render() {
+        //display error if error exists
         if (this.props.error) {
             return <p className="error">{this.props.error}</p>;
         }
 
+        //display loading spinner if loading is true or recipes is null
         if (this.props.lodaing || !this.props.recipes) {
             return <Loading />;
         }
 
+        //display message if no recipes exist
         let message = '';
         if  (this.props.recipes.length <= 0) {
             message= <p className="filter-message">there are no recipes matching the selected criteria</p>;
         }
 
+        //create recipes item components
         const recipes = this.props.recipes.map((recipe, index) => {
             return <RecipesItem 
                         key={`recipe-${index}`} 
