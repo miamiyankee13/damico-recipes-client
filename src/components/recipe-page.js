@@ -17,14 +17,17 @@ export class RecipePage extends React.Component {
     }
     
     render() {
+        //display error if error exists
         if (this.props.error) {
             return <p className="error">{this.props.error}</p>
         }
         
+        //display loading spinner if loading is true or recipe is null
         if (this.props.lodaing || !this.props.currentRecipe) {
             return <Loading />
         }
         
+        //create recipe list items
         const recipeSides = this.props.currentRecipe.sides.map((side, index) => {
             return <li key={`side-${index}`}>{side}</li>;
         });
