@@ -3,22 +3,12 @@ import { Link } from 'react-router-dom';
 import Nav from './nav';
 import './styles/header.css';
 
-export default class Header extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.scrollTop = this.scrollTop.bind(this);
-    }
-
-    scrollTop() {
-        window.scrollTo(0,0);
-    }
-    
+export default class Header extends React.Component {    
     render() {
         return (
             <header className="header">
                 <div className="header__brand">
-                    <Link to="/" onClick={this.scrollTop}>
+                    <Link to="/" onClick={this.props.scrollTop}>
                         <h1 className="header__brand--heading">D'Amico Recipes</h1>
                     </Link>
                 </div>

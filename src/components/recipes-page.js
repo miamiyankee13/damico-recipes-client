@@ -8,32 +8,25 @@ import { fetchRecipes } from '../actions/recipes';
 import './styles/recipes-page.css';
 
 export class RecipesPage extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            filtered: false,
-            filter: ''
-        }
-
-        this.viewRecipe = this.viewRecipe.bind(this);
-        this.enableFiltered = this.enableFiltered.bind(this);
-        this.disableFiltered = this.disableFiltered.bind(this);
-    }
+    state = {
+        filtered: false,
+        filter: ''
+    };
     
     //fetch recipes
-    componentDidMount() {
+    componentDidMount = () => {
         this.props.dispatch(fetchRecipes());
     }
 
     //view individual recipe
-    viewRecipe(event) {
+    viewRecipe = event => {
         const index = event.currentTarget.getAttribute('data-index');
         const recipe = this.props.recipes[index];
         this.props.history.push(`/recipes/${recipe._id}`);
     }
 
     //enable filtered status & set filter value
-    enableFiltered(filter) {
+    enableFiltered = filter => {
         this.setState({
             filtered: true,
             filter
@@ -41,7 +34,7 @@ export class RecipesPage extends React.Component {
     }
 
     //disable filtered status & clear filter value
-    disableFiltered() {
+    disableFiltered = () => {
         this.setState({
             filtered: false,
             filter: ''

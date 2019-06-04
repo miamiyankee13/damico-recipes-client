@@ -5,23 +5,17 @@ import MealOptions from './meal-options';
 import './styles/filter.css';
 
 export class MealFilter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            mealVal: ''
-        };
+    state = {
+        mealVal: ''
+    };
 
-        this.handleMealChange = this.handleMealChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleMealChange(event) {
+    handleMealChange = event => {
         this.setState({
             mealVal: event.target.value
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = event => {
         event.preventDefault();
         const meal = this.state.mealVal;
         if (meal === 'all') {

@@ -6,63 +6,52 @@ import TypeOptions from './type-options';
 import './styles/add-recipe-form.css';
 
 export class AddRecipeForm extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            nameVal: '',
-            ingredientsVal: '',
-            instructionsVal: '',
-            sidesVal: '',
-            mealVal: '',
-            typeVal: ''
-        };
+    state = {
+        nameVal: '',
+        ingredientsVal: '',
+        instructionsVal: '',
+        sidesVal: '',
+        mealVal: '',
+        typeVal: ''
+    };
 
-        this.handleNameChange = this.handleNameChange.bind(this);
-        this.handleIngredientsChange = this.handleIngredientsChange.bind(this);
-        this.handleInstructionsChange = this.handleInstructionsChange.bind(this);
-        this.handleSidesChange = this.handleSidesChange.bind(this);
-        this.handleMealChange = this.handleMealChange.bind(this);
-        this.handleTypeChange = this.handleTypeChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleNameChange(event) {
+    handleNameChange = event => {
         this.setState({
             nameVal: event.target.value
         });
     }
 
-    handleIngredientsChange(event) {
+    handleIngredientsChange = event => {
         this.setState({
             ingredientsVal: event.target.value
         });
     }
 
-    handleInstructionsChange(event) {
+    handleInstructionsChange = event => {
         this.setState({
             instructionsVal: event.target.value
         });
     }
 
-    handleSidesChange(event) {
+    handleSidesChange = event => {
         this.setState({
             sidesVal: event.target.value
         });
     }
 
-    handleMealChange(event) {
+    handleMealChange = event => {
         this.setState({
             mealVal: event.target.value
         });
     }
 
-    handleTypeChange(event) {
+    handleTypeChange = event => {
         this.setState({
             typeVal: event.target.value
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = event => {
         event.preventDefault();
         const name = this.state.nameVal;
         const ingredients = this.state.ingredientsVal.split(",").map(item => item.trim());

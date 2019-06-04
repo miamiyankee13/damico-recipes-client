@@ -5,23 +5,17 @@ import TypeOptions from './type-options';
 import './styles/filter.css';
 
 export class TypeFilter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            typeVal: ''
-        };
+    state = {
+        typeVal: ''
+    };
 
-        this.handleTypeChange = this.handleTypeChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleTypeChange(event) {
+    handleTypeChange = event => {
         this.setState({
             typeVal: event.target.value
         });
     }
 
-    handleSubmit(event) {
+    handleSubmit = event => {
         event.preventDefault();
         const type = this.state.typeVal;
         if (type === 'all') {
