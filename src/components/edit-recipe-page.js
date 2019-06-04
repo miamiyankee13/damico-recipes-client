@@ -11,7 +11,7 @@ export class EditRecipePage extends React.Component {
     }
     
     render() {
-        if (this.props.lodaing) {
+        if (this.props.loading || !this.props.recipes) {
             return <Loading />
         }
 
@@ -41,6 +41,7 @@ export class EditRecipePage extends React.Component {
 
 const mapStateToProps = state => ({
     loading: state.loading,
+    recipes: state.recipes,
     error: state.error,
     feedback: state.feedback
 });

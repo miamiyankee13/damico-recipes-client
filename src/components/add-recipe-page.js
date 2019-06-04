@@ -1,15 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions/recipes';
 import Loading from './loading';
 import AddRecipeForm from './add-recipe-form';
 import './styles/add-recipe-page.css';
 
 export class AddRecipePage extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(fetchRecipes());
+    }
+
     render() {
-        if (this.props.lodaing) {
+        if (this.props.loading || !this.props.recipes) {
             return <Loading />
         }
-
+    
         let message;
         if (this.props.feedback) {
             switch(this.props.feedback.success) {
@@ -36,6 +41,7 @@ export class AddRecipePage extends React.Component {
 
 const mapStateToProps = state => ({
     loading: state.loading,
+    recipes: state.recipes,
     error: state.error,
     feedback: state.feedback
 });

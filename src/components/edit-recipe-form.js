@@ -95,7 +95,7 @@ export class EditRecipeForm extends React.Component {
                     required
                 >
                     <option value=''>--Select Recipe--</option>
-                    <RecipeOptions />
+                    <RecipeOptions recipes={this.props.recipes} />
                 </select>
                 <label htmlFor="edit-recipe__name">name</label>
                 <input 

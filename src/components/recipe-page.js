@@ -23,7 +23,7 @@ export class RecipePage extends React.Component {
         }
         
         //display loading spinner if loading is true or recipe is null
-        if (this.props.lodaing || !this.props.currentRecipe) {
+        if (this.props.loading || !this.props.currentRecipe) {
             return <Loading />
         }
         

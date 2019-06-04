@@ -32,9 +32,20 @@ export class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Backdrop visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} />
-                <Header visible={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} scrollTop={this.scrollTop} />
-                <MobileNav visibile={this.state.mobileNav} toggleMobileNav={this.toggleMobileNav} scrollTop={this.scrollTop} />
+                <Backdrop 
+                    visible={this.state.mobileNav} 
+                    toggleMobileNav={this.toggleMobileNav} 
+                />
+                <Header 
+                    visible={this.state.mobileNav} 
+                    toggleMobileNav={this.toggleMobileNav} 
+                    scrollTop={this.scrollTop} 
+                />
+                <MobileNav 
+                    visibile={this.state.mobileNav} 
+                    toggleMobileNav={this.toggleMobileNav} 
+                    scrollTop={this.scrollTop} 
+                />
                 <main className="main">
                     <Switch>
                         <Route exact path="/" component={RecipesPage} />
