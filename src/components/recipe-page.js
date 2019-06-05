@@ -7,12 +7,12 @@ import './styles/recipe-page.css';
 
 export class RecipePage extends React.Component {
     //fetch single recipe
-    componentDidMount() {
+    componentDidMount = () => {
         this.props.dispatch(fetchSingleRecipe(this.props.match.params.id));
     }
 
     //clear single recipe
-    componentWillUnmount() {
+    componentWillUnmount = () => {
         this.props.dispatch(clearSingleRecipe());
     }
     
