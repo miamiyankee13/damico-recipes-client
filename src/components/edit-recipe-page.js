@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipes } from '../actions/recipes';
+import { fetchRecipes, clearFeedback } from '../actions/recipes';
 import Loading from './loading';
 import EditRecipeForm from './edit-recipe-form';
 import './styles/edit-recipe-page.css';
 
 export class EditRecipePage extends React.Component {
-    componentDidMount() {
+    componentDidMount = () => {
         this.props.dispatch(fetchRecipes());
+    }
+
+    componentWillUnmount = () => {
+        this.props.dispatch(clearFeedback());
     }
     
     render() {
@@ -16,17 +20,11 @@ export class EditRecipePage extends React.Component {
         }
 
         let message;
+        if (this.props.error) {
+            message =  <p className="error">{this.props.error}</p>;
+        }
         if (this.props.feedback) {
-            switch(this.props.feedback.success) {
-                case true:
-                    message = <p className="success">{this.props.feedback.message}</p>;
-                    break;
-                case false:
-                    message = <p className="error">{this.props.feedback.message}</p>;
-                    break;
-                default:
-                    message = '';
-            }
+            message = <p className="success">{this.props.feedback}</p>;
         }
 
         return (

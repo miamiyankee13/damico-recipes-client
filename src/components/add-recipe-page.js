@@ -1,32 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipes } from '../actions/recipes';
+import { clearFeedback } from '../actions/recipes';
 import Loading from './loading';
 import AddRecipeForm from './add-recipe-form';
 import './styles/add-recipe-page.css';
 
 export class AddRecipePage extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(fetchRecipes());
+    componentWillUnmount = () => {
+        this.props.dispatch(clearFeedback());
     }
 
     render() {
-        if (this.props.loading || !this.props.recipes) {
+        if (this.props.loading) {
             return <Loading />
         }
     
         let message;
+        if (this.props.error) {
+            message =  <p className="error">{this.props.error}</p>;
+        }
         if (this.props.feedback) {
-            switch(this.props.feedback.success) {
-                case true:
-                    message = <p className="success">{this.props.feedback.message}</p>;
-                    break;
-                case false:
-                    message = <p className="error">{this.props.feedback.message}</p>;
-                    break;
-                default:
-                    message = '';
-            }
+            message = <p className="success">{this.props.feedback}</p>;
         }
 
         return (

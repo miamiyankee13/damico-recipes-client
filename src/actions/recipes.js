@@ -108,6 +108,11 @@ export const editRecipeError = error => ({
     error
 });
 
+export const CLEAR_FEEDBACK = 'CLEAR_FEEDBACK';
+export const clearFeedback = () => ({
+    type: CLEAR_FEEDBACK
+});
+
 //GET - retrieve recipes
 export const fetchRecipes = () => dispatch => {
     dispatch(fetchRecipesRequest());

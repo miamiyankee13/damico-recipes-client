@@ -20,6 +20,7 @@ import {
     EDIT_RECIPE_REQUEST,
     EDIT_RECIPE_SUCCESS,
     EDIT_RECIPE_ERROR,
+    CLEAR_FEEDBACK,
     fetchRecipesRequest,
     fetchRecipesSuccess,
     fetchRecipesError,
@@ -44,7 +45,8 @@ import {
     editRecipeRequest,
     editRecipeSuccess,
     editRecipeError,
-    editRecipe
+    editRecipe,
+    clearFeedback
     
 } from '../recipes';
 
@@ -199,6 +201,13 @@ describe('Action Creators', function() {
             const action = editRecipeError(error);
             expect(action.type).toEqual(EDIT_RECIPE_ERROR);
             expect(action.error).toEqual(error);
+        });
+    });
+
+    describe('clearFeedback', function() {
+        it('Should return the action', function() {
+            const action = clearFeedback();
+            expect(action.type).toEqual(CLEAR_FEEDBACK);
         });
     });
 });

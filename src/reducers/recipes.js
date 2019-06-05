@@ -18,6 +18,7 @@ import {
     EDIT_RECIPE_REQUEST,
     EDIT_RECIPE_SUCCESS,
     EDIT_RECIPE_ERROR,
+    CLEAR_FEEDBACK
 } from '../actions/recipes';
 
 const initialState = {
@@ -33,7 +34,6 @@ export default function reducer(state = initialState, action) {
         case FETCH_RECIPES_REQUEST:
             return Object.assign({}, state, {
                 loading: true,
-                feedback: null,
                 error: null
             });
         case FETCH_RECIPES_SUCCESS:
@@ -44,7 +44,6 @@ export default function reducer(state = initialState, action) {
         case FETCH_RECIPES_ERROR:
             return Object.assign({}, state, {
                 loading: false,
-                feedback: { success: false, message: action.error.message },
                 error: action.error.message
             });
         case FETCH_SINGLE_RECIPE_REQUEST:
@@ -108,12 +107,11 @@ export default function reducer(state = initialState, action) {
         case CREATE_RECIPE_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
-                feedback: { success: true, message: 'Recipe added!'}
+                feedback: 'Recipe added!'
             });
         case CREATE_RECIPE_ERROR:
             return Object.assign({}, state, {
                 loading: false,
-                feedback: { success: false, message: action.error.message },
                 error: action.error.message
             });
         case EDIT_RECIPE_REQUEST:
@@ -125,13 +123,16 @@ export default function reducer(state = initialState, action) {
         case EDIT_RECIPE_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
-                feedback: { success: true, message: 'Recipe updated!'}
+                feedback: 'Recipe updated!'
             });
         case EDIT_RECIPE_ERROR:
             return Object.assign({}, state, {
                 loading: false,
-                feedback: { success: false, message: action.error.message },
                 error: action.error.message
+            });
+        case CLEAR_FEEDBACK:
+            return Object.assign({}, state, {
+                feedback: null
             });
         default:
             return state;

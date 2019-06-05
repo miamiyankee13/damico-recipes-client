@@ -69,17 +69,7 @@ export class EditRecipeForm extends React.Component {
         const sides = this.state.sidesVal.split(",").map(item => item.trim());
         const meal = this.state.mealVal;
         const type = this.state.typeVal;
-        this.props.dispatch(editRecipe(recipe._id, name, ingredients, instructions, sides, meal, type)).then(() => {
-            this.setState({ 
-                recipeVal: '',
-                nameVal: '',
-                ingredientsVal: '',
-                instructionsVal: '',
-                sidesVal: '',
-                mealVal: '',
-                typeVal: ''
-            });
-        });;
+        this.props.dispatch(editRecipe(recipe._id, name, ingredients, instructions, sides, meal, type));
         window.scrollTo(0,0);
     }
 

@@ -18,7 +18,8 @@ import {
     createRecipeError,
     editRecipeRequest,
     editRecipeSuccess,
-    editRecipeError
+    editRecipeError,
+    clearFeedback
 } from '../../actions/recipes';
 
 describe('Recipes Reducer', function() {
@@ -82,7 +83,7 @@ describe('Recipes Reducer', function() {
                 recipes: null,
                 currentRecipe: null,
                 loading: false,
-                feedback: { success: false, message: mockData.error.message},
+                feedback: null,
                 error: mockData.error.message 
             });
         });
@@ -245,7 +246,7 @@ describe('Recipes Reducer', function() {
                 recipes: null,
                 currentRecipe: null,
                 loading: false,
-                feedback: { success: true, message: 'Recipe added!'},
+                feedback: 'Recipe added!',
                 error: null 
             });
         });
@@ -259,7 +260,7 @@ describe('Recipes Reducer', function() {
                 recipes: null,
                 currentRecipe: null,
                 loading: false,
-                feedback: { success: false, message: mockData.error.message},
+                feedback: null,
                 error: mockData.error.message
             });
         });
@@ -285,7 +286,7 @@ describe('Recipes Reducer', function() {
                 recipes: null,
                 currentRecipe: null,
                 loading: false,
-                feedback: { success: true, message: 'Recipe updated!'},
+                feedback: 'Recipe updated!',
                 error: null 
             });
         });
@@ -299,9 +300,23 @@ describe('Recipes Reducer', function() {
                 recipes: null,
                 currentRecipe: null,
                 loading: false,
-                feedback: { success: false, message: mockData.error.message},
+                feedback: null,
                 error: mockData.error.message
             });
+        });
+    });
+
+    describe('clearFeedback', function() {
+        it('Should reset feedback', function() {
+            const currentState = {
+                recipes: null,
+                currentRecipe: null,
+                loading: false,
+                feedback: { success: false, message: mockData.error.message},
+                error: null
+            };
+            const state = recipesReducer(currentState, clearFeedback());
+            expect(state).toEqual(initialState);
         });
     });
 });
