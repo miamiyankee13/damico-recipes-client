@@ -19,9 +19,9 @@ export class EditRecipePage extends React.Component {
             return <Loading />
         }
 
-        let message;
+        let message = null;
         if (this.props.error) {
-            message =  <p className="error">{this.props.error}</p>;
+            message = <p className="error">{this.props.error}</p>;
         }
         if (this.props.feedback) {
             message = <p className="success">{this.props.feedback}</p>;
