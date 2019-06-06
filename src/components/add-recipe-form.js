@@ -57,7 +57,7 @@ export class AddRecipeForm extends React.Component {
         });
     }
 
-    //dispatch create recipe async action, clear state, & scroll to top of window
+    //dispatch create recipe async action & scroll to top of window
     handleSubmit = event => {
         event.preventDefault();
         const name = this.state.nameVal;

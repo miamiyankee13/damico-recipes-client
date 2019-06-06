@@ -17,48 +17,56 @@ export class EditRecipeForm extends React.Component {
         typeVal: ''
     };
 
+    //track recipe value
     handleRecipeChange = event => {
         this.setState({
             recipeVal: event.target.value
         });
     }
 
+    //track name value
     handleNameChange = event => {
         this.setState({
             nameVal: event.target.value
         });
     }
 
+    //track ingredients value
     handleIngredientsChange = event => {
         this.setState({
             ingredientsVal: event.target.value
         });
     }
 
+    //track instructions value
     handleInstructionsChange = event => {
         this.setState({
             instructionsVal: event.target.value
         });
     }
 
+    //track sides value
     handleSidesChange = event => {
         this.setState({
             sidesVal: event.target.value
         });
     }
 
+    //track meal value
     handleMealChange = event => {
         this.setState({
             mealVal: event.target.value
         });
     }
 
+    //track type value
     handleTypeChange = event => {
         this.setState({
             typeVal: event.target.value
         });
     }
 
+    //dispatch edit recipe async action & scroll to top of window
     handleSubmit = event => {
         event.preventDefault();
         const index = this.state.recipeVal;
