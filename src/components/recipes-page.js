@@ -19,10 +19,8 @@ export class RecipesPage extends React.Component {
     }
 
     //view individual recipe
-    viewRecipe = event => {
-        const index = event.currentTarget.getAttribute('data-index');
-        const recipe = this.props.recipes[index];
-        this.props.history.push(`/recipes/${recipe._id}`);
+    viewRecipe = id => {
+        this.props.history.push(`/recipes/${id}`);
     }
 
     //enable filtered status & set filter value
@@ -59,14 +57,13 @@ export class RecipesPage extends React.Component {
         }
 
         //create recipes item components
-        const recipes = this.props.recipes.map((recipe, index) => {
+        const recipes = this.props.recipes.map(recipe => {
             return <RecipesItem 
-                        key={`recipe-${index}`} 
-                        index={index} 
+                        key={recipe._id} 
                         recipeTitle={recipe.name} 
                         recipeMeal={recipe.meal} 
                         recipeType={recipe.type}
-                        onClick={this.viewRecipe}
+                        onClick={() => this.viewRecipe(recipe._id)}
                     />
         });
         

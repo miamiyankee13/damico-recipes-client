@@ -3,7 +3,7 @@ import './styles/recipes-item.css';
 
 const RecipesItem = props => {
     return (
-        <button className="recipes__item" onClick={props.onClick} data-index={props.index}>
+        <button className="recipes__item" onClick={props.onClick}>
             <article>
                 <h2 className="recipes__item--title" >{props.recipeTitle}</h2>
                 <p className="recipes__item--type">{props.recipeType}</p>
