@@ -6,11 +6,11 @@ import EditRecipeForm from './edit-recipe-form';
 import './styles/edit-recipe-page.css';
 
 export class EditRecipePage extends React.Component {
-    componentDidMount = () => {
+    componentDidMount() {
         this.props.dispatch(fetchRecipes());
     }
 
-    componentWillUnmount = () => {
+    componentWillUnmount() {
         this.props.dispatch(clearFeedback());
     }
     

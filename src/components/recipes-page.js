@@ -14,7 +14,7 @@ export class RecipesPage extends React.Component {
     };
     
     //fetch recipes
-    componentDidMount = () => {
+    componentDidMount() {
         this.props.dispatch(fetchRecipes());
     }
 

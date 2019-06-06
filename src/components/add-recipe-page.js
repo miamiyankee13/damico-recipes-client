@@ -6,7 +6,7 @@ import AddRecipeForm from './add-recipe-form';
 import './styles/add-recipe-page.css';
 
 export class AddRecipePage extends React.Component {
-    componentWillUnmount = () => {
+    componentWillUnmount() {
         this.props.dispatch(clearFeedback());
     }
 
