@@ -11,14 +11,19 @@ export class AddRecipePage extends React.Component {
     }
 
     render() {
+        //display loading spinner if loading is true
         if (this.props.loading) {
             return <Loading />
         }
     
         let message = null;
+
+        //display error message if exists
         if (this.props.error) {
             message = <p className="error">{this.props.error}</p>;
         }
+
+        //display feedback message if exists
         if (this.props.feedback) {
             message = <p className="success">{this.props.feedback}</p>;
         }
