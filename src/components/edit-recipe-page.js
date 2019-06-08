@@ -6,19 +6,24 @@ import EditRecipeForm from './edit-recipe-form';
 import './styles/edit-recipe-page.css';
 
 export class EditRecipePage extends React.Component {
+    //fetch recipes
     componentDidMount() {
         this.props.dispatch(fetchRecipes());
     }
 
+    //clear feedback
     componentWillUnmount() {
         this.props.dispatch(clearFeedback());
     }
     
     render() {
+        //display loading spinner if loading is true or recipes doesn't exist
         if (this.props.loading || !this.props.recipes) {
             return <Loading />
         }
 
+        //display error message if exists
+        //display feedback message if exists
         let message = null;
         if (this.props.error) {
             message = <p className="error">{this.props.error}</p>;
