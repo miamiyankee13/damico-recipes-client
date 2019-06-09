@@ -9,24 +9,24 @@ export class TypeFilter extends React.Component {
         typeVal: ''
     };
 
+    //track type value
     handleTypeChange = event => {
         this.setState({
             typeVal: event.target.value
         });
     }
 
+    //dispatch fetch recipes/fetch recipes by type async action, disable/enable filter, & scroll to top
     handleSubmit = event => {
         event.preventDefault();
         const type = this.state.typeVal;
         if (type === 'all') {
             this.props.dispatch(fetchRecipes()).then(() => {
-                this.setState({ typeVal: '' });
                 this.props.disableFiltered();
             });
             window.scrollTo(0,0);
         } else {
             this.props.dispatch(fetchRecipesByType(type)).then(() => {
-                this.setState({ typeVal: '' });
                 this.props.enableFiltered(type);
             });
             window.scrollTo(0,0);

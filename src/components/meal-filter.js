@@ -9,24 +9,24 @@ export class MealFilter extends React.Component {
         mealVal: ''
     };
 
+    //track meal value
     handleMealChange = event => {
         this.setState({
             mealVal: event.target.value
         });
     }
 
+    //dispatch fetch recipes/fetch recipes by meal async action, disable/enable filter, & scroll to top
     handleSubmit = event => {
         event.preventDefault();
         const meal = this.state.mealVal;
         if (meal === 'all') {
             this.props.dispatch(fetchRecipes()).then(() => {
-                this.setState({ mealVal: '' });
                 this.props.disableFiltered();
             });
             window.scrollTo(0,0);
         } else {
             this.props.dispatch(fetchRecipesByMeal(meal)).then(() => {
-                this.setState({ mealVal: '' });
                 this.props.enableFiltered(meal);
             });
             window.scrollTo(0,0);

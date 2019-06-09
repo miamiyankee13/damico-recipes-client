@@ -17,14 +17,12 @@ export class AddRecipePage extends React.Component {
             return <Loading />
         }
     
-        let message = null;
-
         //display error message if exists
+        //display feedback message if exists
+        let message = null;
         if (this.props.error) {
             message = <p className="error">{this.props.error}</p>;
         }
-
-        //display feedback message if exists
         if (this.props.feedback) {
             message = <p className="success">{this.props.feedback}</p>;
         }
