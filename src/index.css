@@ -26,7 +26,7 @@ body {
 }
 
 .open {
-    transform: translateY(0) !important;
+    transform: translateX(0) !important;
     pointer-events: auto !important;
     opacity: 1 !important;
 }
