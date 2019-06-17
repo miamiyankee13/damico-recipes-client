@@ -15,6 +15,18 @@ export class App extends React.Component {
         mobileNav: false
     };
 
+    componentDidMount() {
+        window.addEventListener('resize', () => {
+            this.setState(prevState => {
+                return { mobileNav: window.innerWidth < 800 && prevState.mobileNav };
+            });
+        });
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextState.mobileNav !== this.state.mobileNav;
+    }
+
     //toggle status of mobile nav
     toggleMobileNav = () => {
         this.setState(prevState => {
