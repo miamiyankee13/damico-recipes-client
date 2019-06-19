@@ -15,6 +15,7 @@ export class App extends React.Component {
         mobileNav: false
     };
 
+    //event listener for backdrop removal if open and window is resized
     componentDidMount() {
         window.addEventListener('resize', () => {
             this.setState(prevState => {
@@ -23,6 +24,7 @@ export class App extends React.Component {
         });
     }
 
+    //avoid re-rendering on every window resize
     shouldComponentUpdate(nextProps, nextState) {
         return nextState.mobileNav !== this.state.mobileNav;
     }
