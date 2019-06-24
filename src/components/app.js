@@ -63,9 +63,9 @@ export class App extends React.Component {
                 <main className="main">
                     <Switch>
                         <Route exact path="/" component={RecipesPage} />
-                        <Route exact path="/recipes/:id" component={RecipePage} />
-                        <Route exact path="/add" component={AddRecipePage} />
-                        <Route exact path="/edit" component={EditRecipePage} />
+                        <Route path="/add" component={AddRecipePage} />
+                        <Route path="/edit" component={EditRecipePage} />
+                        <Route path="/:id" component={RecipePage} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </main>
