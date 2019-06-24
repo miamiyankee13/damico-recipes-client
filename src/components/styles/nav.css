@@ -19,6 +19,10 @@
 .nav__item a:hover,
 .nav__item a:active {
     color: orangered;
+}
+
+.nav__item a.active {
+    color: orangered;
     border-bottom: 2px solid orangered;
 }
 
