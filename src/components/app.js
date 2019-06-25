@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import Backdrop from './backdrop';
 import Header from './header';
 import MobileNav from './mobile-nav';
@@ -62,10 +62,11 @@ export class App extends React.Component {
                 />
                 <main className="main">
                     <Switch>
-                        <Route exact path="/" component={RecipesPage} />
+                        <Route path="/recipes/:id" component={RecipePage} />
+                        <Route path="/recipes" component={RecipesPage} />
                         <Route path="/add" component={AddRecipePage} />
                         <Route path="/edit" component={EditRecipePage} />
-                        <Route path="/:id" component={RecipePage} />
+                        <Redirect from="/" to="/recipes" />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </main>

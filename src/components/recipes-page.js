@@ -20,7 +20,7 @@ export class RecipesPage extends React.Component {
 
     //view individual recipe
     viewRecipe = id => {
-        this.props.history.push(`/${id}`);
+        this.props.history.push(`/recipes/${id}`);
     }
 
     //enable filtered status & set filter value
